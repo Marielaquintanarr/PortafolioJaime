@@ -1,0 +1,13 @@
+/* Reseteo completo para eliminar todos los márgenes */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  background-color: #1A1A1D;
+}
+
+
