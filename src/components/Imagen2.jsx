@@ -60,8 +60,8 @@ export default function Image2({ image1, image2}) {
               src={image1}
               alt="Imagen"
               style={{
-                width: "calc(100% - 24px)",
-                height: "calc(100% - 24px)",
+                width: "calc(100%)",
+                height: "calc(100%)",
                 objectFit: "cover",
                 paddingLeft: "24px",
                 paddingTop: "24px"
@@ -88,8 +88,8 @@ export default function Image2({ image1, image2}) {
               src={image2}
               alt="Imagen"
               style={{
-                width: "calc(100% - 24px)",
-                height: "calc(100% - 24px)",
+                width: "calc(100%)",
+                height: "calc(100%)",
                 objectFit: "cover",
                 paddingLeft: "24px",
                 paddingTop: "24px"

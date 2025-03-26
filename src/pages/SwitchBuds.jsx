@@ -11,10 +11,20 @@ import main_buds from '../assets/Group1.png';
 import MainImage3 from '../components/MainImage3';
 import main_buds2 from '../assets/main-buds2.png';
 import MainImage from '../components/MainImage';
+import SBHeader from '../components/SBHeader';
+import topswitch from "../assets/topswitch.png";
+import logo from "../assets/logo.png"
+
+const text = `Personal project
+Concept design
+4 weeks 
+2024`;
+
+
 function SwitchBuds() {
     return (
       <div style={{ width: "100vw", margin: 0, padding: 0, height: "100vh" }}>
-
+        <SBHeader logo={logo} image={topswitch} text={text} title={"Switch-buds"} />
         <MainImage image={buds1} label={"Switch Buds"} color={"#b91820"}/>
         <Text  width={"760px"} height={"83px"} text = {'These conceptual earbuds were designed to align with the playful and versatile spirit of the Nintendo Switch. Drawing on the console’s iconic colors and minimalist aesthetic.'}/>
         <Image2 image1={mask1} image2={mask2} color={"#1A1A1D"} col1={1} cspan1={3} row1 = {1} rspan1={4} col2={5} cspan2={3} row2={1} rspan2={4}/>

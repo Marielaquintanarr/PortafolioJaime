@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function ImagenYTexto({ image, text, width, height }) {
+export default function ImagenYTexto({ logo, image, text, title, width, height }) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -47,13 +47,12 @@ export default function ImagenYTexto({ image, text, width, height }) {
 
         }}
       >
-        {/* texto */}
+        {/* title */}
         <div
             style={{
-              gridColumn: "2 / span 3",
-              gridRow: "2 / span 3",
+              gridColumn: "1 / span 7",
+              gridRow: "2 / span 13",
               display: "flex",
-              alignItems: "center"
 
             }}
           >
@@ -63,7 +62,55 @@ export default function ImagenYTexto({ image, text, width, height }) {
                 height: height,
                 display: "flex",
                 marginLeft: "24px",
-                alignItems: "center"
+              }}
+            >
+              <p
+                style={{
+                  color: "white",
+                  fontFamily: "Inter",
+                  fontWeight: "bold",
+                  fontSize: "88px", 
+                  margin: 0,
+                  textAlign: "left", 
+                }}
+              >
+                {title}
+              </p>
+            </div>
+        </div>
+        
+
+        {/* logo */}
+        <div style={{
+              gridColumn: "1 / span 1",
+              gridRow: "1 / span 1",
+              display: "flex",
+
+            }}>
+                <img style={{
+                    paddingLeft: "24px",
+                    paddingTop: "24px",
+                    width: "61px",
+                    height: "48.68px"
+                }} src={logo}></img>
+
+        </div>
+
+        {/* texto */}
+        <div
+            style={{
+              gridColumn: "1 / span 3",
+              gridRow: "3 / span 3",
+              display: "flex",
+
+            }}
+          >
+             <div
+              style={{
+                width:  width, 
+                height: height,
+                display: "flex",
+                marginLeft: "24px",
               }}
             >
               <p
@@ -73,8 +120,9 @@ export default function ImagenYTexto({ image, text, width, height }) {
                   fontWeight: "lighter",
                   fontSize: "clamp(16px, 2.5vw, 28px)", 
                   margin: 0,
+                  paddingTop: "24px",
                   textAlign: "left", 
-
+                  whiteSpace: "pre-line",
                 }}
               >
                 {text}
@@ -82,24 +130,23 @@ export default function ImagenYTexto({ image, text, width, height }) {
             </div>
         </div>
 
-        {/* Imagen derecha */}
+        {/* imagen */}
         <div
             style={{
-              gridColumn: "5 / span 2",
-              gridRow: "2 / span 3",
-              display: "flex",
-              overflow: "hidden", 
+                gridColumn: "3 / -1",
+                gridRow: "1  / 5"
             }}
           >
             <img
               src={image}
               alt="Imagen"
               style={{
-                width: "calc(100%)",
-                height: "calc(100%)",
+                width: "calc(100% + 24px)",
+                height: "calc(100% + 24px)",
                 objectFit: "cover",
-                paddingLeft: "24px",
-                paddingTop: "24px"
+                position: "relative",
+                right: "-24px",
+                top: "-24px"
               }}
             />
         </div>

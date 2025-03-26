@@ -15,8 +15,12 @@ import titan5 from "../assets/titan5.png";
 import Image7 from '../components/Image7';
 import titan7 from "../assets/titan7.png"
 import titan6 from "../assets/titan6.png"
+import Image5 from '../components/Image5';
 import PageHeader from "../components/PageHeader";
-
+import logo from "../assets/logo.png";
+import Block2 from '../components/Block2';
+import MainImage6 from '../components/MainImage6';
+import Text2 from '../components/Text2';
 const text = `Academic project: Universidad de Guadalajara
 Team partners: Adan López López / Valeria Hidalgo y Costilla Castellanos
 Product design
@@ -28,13 +32,15 @@ Contribution: Design / Research / C.M.F. / Visualization / CAD`;
 function Titan() {
     return (
       <div style={{ width: "100vw", margin: 0, padding: 0, height: "100vh" }}>
-        <PageHeader title={"Titan"} text={text} />
-        <MainImage5 image={titan} label={""} color={"#0704AE"}/>
-        <Text width={"1000px"} height={"182px"} text={"Titan is a multifunctional toy designed for children aged 3 to 5, aimed at fostering physical and cognitive development through active play. Titan was design with a modular design, Titan can transform into different configurations, such as a balance bike and scooter, promoting both creativity and active play. Titan´s interchangeable and optional accessories further encourage imaginative play."}/>
+        <PageHeader logo={logo} title={"Titan"} text={text} />
+        <Block2 />
+        <Block2 />
+        <Image5 image={titan} color={"#0704B1"} />
+        <Text2 columna={3} cspan={3} row={2} rspan={1}text={"Titan is a multifunctional toy designed for children aged 3 to 5, aimed at fostering physical and cognitive development through active play. Titan was design with a modular design, Titan can transform into different configurations, such as a balance bike and scooter, promoting both creativity and active play. Titan´s interchangeable and optional accessories further encourage imaginative play."}/>
         <Image2_1 image1={titan1} image2={titan2} />
-        <Text width={"505px"} height={"312px"} text={"While designing Titan’s play and build features, I considered how kids interact with toys both with and without parental help. Younger children might need assistance at first, but as they grow, Titan’s system of oversized screws ensures that assembly and disassembly are easy and intuitive. This approach not only supports their development but also allows them to engage more independently as they gain confidence and skills."}/>
+        <Text2 columna={2} cspan={5} row={2} rspan={1}  text={"While designing Titan’s play and build features, I considered how kids interact with toys both with and without parental help. Younger children might need assistance at first, but as they grow, Titan’s system of oversized screws ensures that assembly and disassembly are easy and intuitive. This approach not only supports their development but also allows them to engage more independently as they gain confidence and skills."}/>
         <MainImage3_1 image={titan4} color={"#ffff"}/>
-        <ImagenYTexto image={titan7} width={"950px"} height={"281px"} text={"As part of our project development, we conducted field research at a kindergarten, interviewing children aged 3 to 5 through playful activities. The research involved engaging the children in a series of recreational exercises, beginning with educational games and concluding with a group interview. We discovered that the toys children enjoyed the most were those that allowed them to express themselves and engage in imaginative play."} />
+        <ImagenYTexto image={titan7} text={"As part of our project development, we conducted field research at a kindergarten, interviewing children aged 3 to 5 through playful activities. The research involved engaging the children in a series of recreational exercises, beginning with educational games and concluding with a group interview. We discovered that the toys children enjoyed the most were those that allowed them to express themselves and engage in imaginative play."} />
         <MainImage4 image={carrito} />
         <Image6 image={titan5} />
         <Image7 image={titan6} />

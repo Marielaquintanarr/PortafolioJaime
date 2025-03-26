@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function Image5({ image, color }) {
+export default function Image5({ image }) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function Image5({ image, color }) {
   }, [])
 
   const gridColumns = 7
-  const gridRows = 5
+  const gridRows = 4
   const paddingLeft = 24
   const paddingRight = 48
   const extraWidth = 24
@@ -34,55 +34,48 @@ export default function Image5({ image, color }) {
         boxSizing: "border-box",
       }}
     >
-      {/* Contenedor del fondo desplazado 24px hacia abajo */}
-      <div
-        style={{
-          position: "absolute",
-          top: "24px", 
-          left: 0,
-          right: 0,
-          height: "calc(100% - 24px)",
-          backgroundColor: color,
-          zIndex: -1, 
-        }}
-      />
-
       <div
         style={{
           position: "relative",
           width: `${gridWidth}px`,
-          aspectRatio: "7/5",
+          aspectRatio: "7/4",
           overflow: "visible",
           display: "grid",
           gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
           gridTemplateRows: `repeat(${gridRows}, 1fr)`,
           boxSizing: "border-box",
+
         }}
       >
-        {/* Contenedor de la imagen con fondo */}
+        {/* Imagen izquierda */}
         <div
           style={{
-            position: "absolute",
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: `-${extraWidth}px`,
-            zIndex: 0,
-            backgroundImage: `url(${image || "/placeholder.svg"})`,
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "contain",
+            position: "absolute", // Sacamos la imagen del grid
+            top: "24px",
+            left: "-24px",
+            width: "100vw", // Se asegura que la imagen ocupe toda la pantalla
+            height: "100%", // O puedes usar "100vh" si quieres que ocupe toda la altura
+            overflow: "hidden",
           }}
-        />
-
+        >
+          <img
+            src={image}
+            alt="Imagen"
+            style={{
+              width: "100%", // Se mantiene al 100% del contenedor absoluto
+              height: "calc(100% - 24px)",
+              objectFit: "cover",
+            }}
+          />
+        </div>
         {/* Grid overlay */}
         <div
           style={{
             position: "absolute",
             top: 0,
             bottom: 0,
-            left: "0px",
-            right: `-${extraWidth}px`,
+            left: `0px`,
+            right: `-${extraWidth}px`, 
             zIndex: 10,
           }}
         >
@@ -100,7 +93,7 @@ export default function Image5({ image, color }) {
                 top: 0,
                 bottom: 0,
                 left: 0,
-                right: `${extraWidth}px`,
+                right: `${extraWidth}px`, // Dejamos espacio para el borde derecho ancho
                 backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.5) 24px, transparent 1px)`,
                 backgroundSize: `calc(100% / ${gridColumns}) 100%`,
                 backgroundRepeat: "repeat-x",
@@ -150,3 +143,4 @@ export default function Image5({ image, color }) {
     </div>
   )
 }
+

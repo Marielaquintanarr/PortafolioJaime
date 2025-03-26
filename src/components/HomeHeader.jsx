@@ -1,8 +1,10 @@
 "use client"
-
+import { Routes, Route, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
+import Marquee2 from "./Marquee2";
+import Marquee from "./Marquee";
 
-export default function ImagenYTexto({ image, text, width, height }) {
+export default function HomeHeader({ logo, text }) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -13,14 +15,14 @@ export default function ImagenYTexto({ image, text, width, height }) {
   }, [])
 
   const gridColumns = 7
-  const gridRows = 5
+  const gridRows = 3
   const paddingLeft = 24
   const paddingRight = 48
   const extraWidth = 24
 
   // El ancho real del grid sin contar el extraWidth
   const gridWidth = windowWidth - paddingLeft - paddingRight
-
+  const altura = ((gridWidth / 7) / 2) + 48
   return (
     <div
       style={{
@@ -38,7 +40,7 @@ export default function ImagenYTexto({ image, text, width, height }) {
         style={{
           position: "relative",
           width: `${gridWidth}px`,
-          aspectRatio: "7/5",
+          aspectRatio: "7/3",
           overflow: "visible",
           display: "grid",
           gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
@@ -47,62 +49,55 @@ export default function ImagenYTexto({ image, text, width, height }) {
 
         }}
       >
-        {/* texto */}
+        
+        {/* logo */}
+        <div style={{
+              gridColumn: "1 / span 1",
+              gridRow: "1 / span 1",
+              display: "flex",
+
+            }}>
+                <img style={{
+                    paddingLeft: "24px",
+                    paddingTop: "24px",
+                    width: "61px",
+                    height: "48.68px"
+                }} src={logo}></img>
+        </div>
+
+        <div style={{
+              gridColumn: "1 / span 7",
+              gridRow: "2 / span 2",
+              width: "100vw",
+              marginTop: `-${altura}px`
+            }}>
+              <Marquee />
+        </div>
+
+        {/* text */}
         <div
             style={{
-              gridColumn: "2 / span 3",
-              gridRow: "2 / span 3",
-              display: "flex",
-              alignItems: "center"
-
+              gridColumn: "2 / span 1",
+              gridRow: "4 / span 1",
             }}
           >
-             <div
-              style={{
-                width:  width, 
-                height: height,
-                display: "flex",
-                marginLeft: "24px",
-                alignItems: "center"
-              }}
-            >
               <p
                 style={{
+                  paddingLeft: "24px",
                   color: "white",
                   fontFamily: "Nunito",
                   fontWeight: "lighter",
-                  fontSize: "clamp(16px, 2.5vw, 28px)", 
+                  fontSize: "18px", 
                   margin: 0,
                   textAlign: "left", 
-
+                  whiteSpace: "pre-line",
                 }}
               >
                 {text}
               </p>
-            </div>
         </div>
 
-        {/* Imagen derecha */}
-        <div
-            style={{
-              gridColumn: "5 / span 2",
-              gridRow: "2 / span 3",
-              display: "flex",
-              overflow: "hidden", 
-            }}
-          >
-            <img
-              src={image}
-              alt="Imagen"
-              style={{
-                width: "calc(100%)",
-                height: "calc(100%)",
-                objectFit: "cover",
-                paddingLeft: "24px",
-                paddingTop: "24px"
-              }}
-            />
-        </div>
+        
         {/* Grid overlay */}
         <div
           style={{

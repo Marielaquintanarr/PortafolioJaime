@@ -75,7 +75,7 @@ export default function Text2({ text, color, width, height, columna, cspan, row,
                   margin: 0,
                   textAlign: "left", 
                   whiteSpace: "pre-line",
-
+                  marginLeft: "24px"
                 }}
               >
                 {text}

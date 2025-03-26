@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function ImagenYTexto({ image, text, width, height }) {
+export default function Text1({ text, color, width, height, columna, cspan, row, rspan}) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -13,12 +13,11 @@ export default function ImagenYTexto({ image, text, width, height }) {
   }, [])
 
   const gridColumns = 7
-  const gridRows = 5
+  const gridRows = 3
   const paddingLeft = 24
   const paddingRight = 48
   const extraWidth = 24
 
-  // El ancho real del grid sin contar el extraWidth
   const gridWidth = windowWidth - paddingLeft - paddingRight
 
   return (
@@ -29,6 +28,7 @@ export default function ImagenYTexto({ image, text, width, height }) {
         display: "flex",
         alignItems: "start",
         justifyContent: "flex-start",
+        backgroundColor: color,
         paddingLeft: `${paddingLeft}px`,
         paddingRight: `${paddingRight}px`,
         boxSizing: "border-box",
@@ -38,23 +38,23 @@ export default function ImagenYTexto({ image, text, width, height }) {
         style={{
           position: "relative",
           width: `${gridWidth}px`,
-          aspectRatio: "7/5",
+          aspectRatio: "7/3",
           overflow: "visible",
           display: "grid",
           gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
           gridTemplateRows: `repeat(${gridRows}, 1fr)`,
           boxSizing: "border-box",
-
         }}
       >
-        {/* texto */}
-        <div
+    
+         {/* texto */}
+         <div
             style={{
-              gridColumn: "2 / span 3",
-              gridRow: "2 / span 3",
+              gridColumn: `${columna} / span ${cspan}`,
+              gridRow: `${row} / span ${rspan}`,
               display: "flex",
-              alignItems: "center"
-
+              alignItems: "center",
+              justifyContent: "center"
             }}
           >
              <div
@@ -62,8 +62,8 @@ export default function ImagenYTexto({ image, text, width, height }) {
                 width:  width, 
                 height: height,
                 display: "flex",
-                marginLeft: "24px",
-                alignItems: "center"
+                alignItems: "center",
+                justifyContent: "center"
               }}
             >
               <p
@@ -74,6 +74,7 @@ export default function ImagenYTexto({ image, text, width, height }) {
                   fontSize: "clamp(16px, 2.5vw, 28px)", 
                   margin: 0,
                   textAlign: "left", 
+                  whiteSpace: "pre-line",
 
                 }}
               >
@@ -82,27 +83,6 @@ export default function ImagenYTexto({ image, text, width, height }) {
             </div>
         </div>
 
-        {/* Imagen derecha */}
-        <div
-            style={{
-              gridColumn: "5 / span 2",
-              gridRow: "2 / span 3",
-              display: "flex",
-              overflow: "hidden", 
-            }}
-          >
-            <img
-              src={image}
-              alt="Imagen"
-              style={{
-                width: "calc(100%)",
-                height: "calc(100%)",
-                objectFit: "cover",
-                paddingLeft: "24px",
-                paddingTop: "24px"
-              }}
-            />
-        </div>
         {/* Grid overlay */}
         <div
           style={{
@@ -110,7 +90,7 @@ export default function ImagenYTexto({ image, text, width, height }) {
             top: 0,
             bottom: 0,
             left: `0px`,
-            right: `-${extraWidth}px`, 
+            right: `-${extraWidth}px`,
             zIndex: 10,
           }}
         >

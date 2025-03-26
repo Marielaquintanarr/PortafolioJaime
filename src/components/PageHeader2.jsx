@@ -1,8 +1,13 @@
 "use client"
-
+import { Routes, Route, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
+import Home from "../pages/Home"
+import About from "../pages/About"
+import SwitchBuds from "../pages/SwitchBuds"
+import Titan from "../pages/Titan"
+import Stoool from "../pages/Stoool"
 
-export default function ImagenYTexto({ image, text, width, height }) {
+export default function PageHeader2({ logo, title, text }) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -13,7 +18,7 @@ export default function ImagenYTexto({ image, text, width, height }) {
   }, [])
 
   const gridColumns = 7
-  const gridRows = 5
+  const gridRows = 3
   const paddingLeft = 24
   const paddingRight = 48
   const extraWidth = 24
@@ -38,7 +43,7 @@ export default function ImagenYTexto({ image, text, width, height }) {
         style={{
           position: "relative",
           width: `${gridWidth}px`,
-          aspectRatio: "7/5",
+          aspectRatio: "7/3",
           overflow: "visible",
           display: "grid",
           gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
@@ -47,62 +52,109 @@ export default function ImagenYTexto({ image, text, width, height }) {
 
         }}
       >
-        {/* texto */}
+        {/* navbar
+        <div style={{
+              gridColumn: "3 / span 3",
+              gridRow: "1 / span 1",
+              display: "flex",
+              justifyContent: "center",
+            }}>
+                <nav
+                    style={{
+                        display: "flex",
+                        gap: "92px",
+                        backgroundColor: "#ffff",
+                        marginLeft: "24px",
+                        width: "calc(100% - 144px)",
+                        marginTop: "33px",
+                        height: "calc(100% - 164px)",
+                        borderRadius: "150px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                >
+                    <Link to="/" style={{ marginRight: "10px", color: "black",  textDecoration: "none", fontFamily: "Nunito", fontWeight: "lighter", fontSize: "29.25px"}}>
+                    home
+                    </Link>
+                    <Link to="/about" style={{ marginRight: "10px", color: "black", textDecoration: "none", fontFamily: "Nunito", fontWeight: "lighter", fontSize: "29.25px"}}>
+                    About
+                    </Link>
+                    <Link to="/switchbuds" style={{ marginRight: "10px", color: "black", textDecoration: "none", fontFamily: "Nunito", fontWeight: "lighter", fontSize: "29.25px" }}>
+                    SwitchBuds
+                    </Link>
+                    <Link to="/titan" style={{ marginRight: "10px", color: "black", textDecoration: "none", fontFamily: "Nunito", fontWeight: "lighter", fontSize: "29.25px" }}>
+                    Titan
+                    </Link>
+                    <Link to="/stoool" style={{ marginRight: "10px", color: "black", textDecoration: "none", fontFamily: "Nunito", fontWeight: "lighter", fontSize: "29.25px"}}>
+                    Stool
+                    </Link>
+                </nav>
+   
+        </div> */}
+
+        {/* logo */}
+        <div style={{
+              gridColumn: "1 / span 1",
+              gridRow: "1 / span 1",
+              display: "flex",
+
+            }}>
+                <img style={{
+                    paddingLeft: "24px",
+                    paddingTop: "24px",
+                    width: "61px",
+                    height: "48.68px"
+                }} src={logo}></img>
+        </div>
+        {/* title */}
         <div
             style={{
-              gridColumn: "2 / span 3",
-              gridRow: "2 / span 3",
+              gridColumn: "1 / span 7",
+              gridRow: "2 / span 1",
               display: "flex",
-              alignItems: "center"
-
+              marginLeft: "24px"
             }}
           >
-             <div
-              style={{
-                width:  width, 
-                height: height,
-                display: "flex",
-                marginLeft: "24px",
-                alignItems: "center"
-              }}
-            >
               <p
                 style={{
                   color: "white",
+                  fontFamily: "Inter",
+                  fontWeight: "bold",
+                  fontSize: "128px", 
+                  margin: 0,
+                  textAlign: "left",
+                }}
+              >
+                {title}
+              </p>
+        </div>
+
+        {/* text */}
+        <div
+            style={{
+              gridColumn: "1 / span 2",
+              gridRow: "3 / span 2",
+              display: "flex",
+            }}
+          >
+              <p
+                style={{
+                  paddingLeft: "24px",
+                  color: "white",
                   fontFamily: "Nunito",
                   fontWeight: "lighter",
-                  fontSize: "clamp(16px, 2.5vw, 28px)", 
+                  fontSize: "18px", 
                   margin: 0,
                   textAlign: "left", 
-
+                  whiteSpace: "pre-line",
+                  marginTop: "24px"
                 }}
               >
                 {text}
               </p>
-            </div>
         </div>
 
-        {/* Imagen derecha */}
-        <div
-            style={{
-              gridColumn: "5 / span 2",
-              gridRow: "2 / span 3",
-              display: "flex",
-              overflow: "hidden", 
-            }}
-          >
-            <img
-              src={image}
-              alt="Imagen"
-              style={{
-                width: "calc(100%)",
-                height: "calc(100%)",
-                objectFit: "cover",
-                paddingLeft: "24px",
-                paddingTop: "24px"
-              }}
-            />
-        </div>
+        
         {/* Grid overlay */}
         <div
           style={{

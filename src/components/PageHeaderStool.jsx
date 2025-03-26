@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function ImagenYTexto({ image, text, width, height }) {
+export default function PageHeaderStool({ title, logo, text}) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -47,62 +47,61 @@ export default function ImagenYTexto({ image, text, width, height }) {
 
         }}
       >
-        {/* texto */}
+        {/* logo */}
+        <div style={{
+            gridColumn: "1 / span 7",
+            gridRow: "1 / span 1",
+            display: "flex",
+            marginLeft: "24px",
+            marginTop: "24px",
+            width: "61px",
+            height: "48.68px"
+        }}>
+            <img src={logo}></img>
+        </div>
+        {/* title */}
+        <div style={{
+            gridColumn: "1 / span 7",
+            gridRow: "2 / span 1",
+            display: "flex",
+            marginLeft: "24px",
+        }}>
+            <p style={{
+                color: "white",
+                fontFamily: "Inter",
+                fontSize: "128px",
+                fontWeight: "bold"
+            }}>
+                {title}
+            </p>
+        </div>
+
+        {/* text */}
         <div
             style={{
-              gridColumn: "2 / span 3",
-              gridRow: "2 / span 3",
+              gridColumn: "1 / span 4",
+              gridRow: "3 / span 2",
               display: "flex",
-              alignItems: "center"
-
             }}
           >
-             <div
-              style={{
-                width:  width, 
-                height: height,
-                display: "flex",
-                marginLeft: "24px",
-                alignItems: "center"
-              }}
-            >
               <p
                 style={{
+                  paddingLeft: "24px",
                   color: "white",
                   fontFamily: "Nunito",
                   fontWeight: "lighter",
-                  fontSize: "clamp(16px, 2.5vw, 28px)", 
+                  fontSize: "18px", 
                   margin: 0,
                   textAlign: "left", 
-
+                  whiteSpace: "pre-line",
+                  marginTop: "24px"
                 }}
               >
                 {text}
               </p>
             </div>
-        </div>
+        
 
-        {/* Imagen derecha */}
-        <div
-            style={{
-              gridColumn: "5 / span 2",
-              gridRow: "2 / span 3",
-              display: "flex",
-              overflow: "hidden", 
-            }}
-          >
-            <img
-              src={image}
-              alt="Imagen"
-              style={{
-                width: "calc(100%)",
-                height: "calc(100%)",
-                objectFit: "cover",
-                paddingLeft: "24px",
-                paddingTop: "24px"
-              }}
-            />
-        </div>
         {/* Grid overlay */}
         <div
           style={{

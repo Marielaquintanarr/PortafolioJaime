@@ -60,8 +60,8 @@ export default function Image6({ image}) {
               src={image}
               alt="Imagen"
               style={{
-                width: "calc(100% - 24px)",
-                height: "calc(100% - 24px)",
+                width: "calc(100%)",
+                height: "calc(100%)",
                 objectFit: "cover",
                 paddingLeft: "24px",
                 paddingTop: "24px"

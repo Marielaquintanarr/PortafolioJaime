@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function PageHeader({ title, text }) {
+export default function PageHeader({ title, logo, text}) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function PageHeader({ title, text }) {
   }, [])
 
   const gridColumns = 7
-  const gridRows = 4
+  const gridRows = 3
   const paddingLeft = 24
   const paddingRight = 48
   const extraWidth = 24
@@ -38,7 +38,7 @@ export default function PageHeader({ title, text }) {
         style={{
           position: "relative",
           width: `${gridWidth}px`,
-          aspectRatio: "7/4",
+          aspectRatio: "7/3",
           overflow: "visible",
           display: "grid",
           gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
@@ -47,57 +47,80 @@ export default function PageHeader({ title, text }) {
 
         }}
       >
+        {/* logo */}
+        <div style={{
+            gridColumn: "1 / span 7",
+            gridRow: "1 / span 1",
+            display: "flex",
+            marginLeft: "24px",
+            marginTop: "24px",
+            width: "61px",
+            height: "48.68px"
+        }}>
+            <img src={logo}></img>
+        </div>
+
+        {/* navbar */}
+        <div style={{
+            gridColumn: "3 / span 3",
+            gridRow: "1 / span 1",
+            display: "flex",
+            marginLeft: "24px",
+            marginTop: "24px",
+        }}>
+          <div style={{
+            borderRadius: "39px",
+            backgroundColor: "rgba(255, 255, 255, 0.58)",
+            
+            marginBottom: "131px"
+          }}>
+
+          </div>
+        </div>
+
         {/* title */}
-        <div
-            style={{
-              gridColumn: "1 / span 2",
-              gridRow: "1 / span 1",
-              display: "flex",
-
-            }}
-          >
-              <p
-                style={{
-                  paddingLeft: "24px",
-                  color: "white",
-                  fontFamily: "Inter",
-                  fontWeight: "bold",
-                  fontSize: "128px", 
-                  margin: 0,
-                  textAlign: "left", 
-
-                }}
-              >
+        <div style={{
+            gridColumn: "1 / span 7",
+            gridRow: "2 / span 1",
+            display: "flex",
+            marginLeft: "24px",
+        }}>
+            <p style={{
+                color: "white",
+                fontFamily: "Inter",
+                fontSize: "128px",
+                fontWeight: "bold"
+            }}>
                 {title}
-              </p>
+            </p>
         </div>
 
         {/* text */}
         <div
             style={{
-              gridColumn: "1 / span 2",
-              gridRow: "2 / span 1",
+              gridColumn: "1 / span 4",
+              gridRow: "3 / span 2",
               display: "flex",
             }}
           >
               <p
                 style={{
                   paddingLeft: "24px",
-                  paddingTop: "24px",
                   color: "white",
                   fontFamily: "Nunito",
                   fontWeight: "lighter",
-                  fontSize: "20px", 
+                  fontSize: "18px", 
                   margin: 0,
                   textAlign: "left", 
                   whiteSpace: "pre-line",
+                  marginTop: "24px"
                 }}
               >
                 {text}
               </p>
-        </div>
-
+            </div>
         
+
         {/* Grid overlay */}
         <div
           style={{

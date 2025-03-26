@@ -1,27 +1,20 @@
-.marquee-container {
-    width: 100%;
-    overflow: hidden;
+.marquee {
+  animation: marquee 1s linear infinite;
+}
+
+.marquee p {
+  color: white;
+  font-size: 25px;
+  font-family: "Inter", sans-serif;
+  font-weight: 100;
+  display: inline-block;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
   }
-  
-  .marquee {
-    display: flex;
-    animation: marquee 10s linear infinite;
+  to {
+    transform: translateX(-50%);
   }
-  
-  .marquee span {
-    color: white; 
-    font-size: 250px;
-    white-space: nowrap;
-    font-family: 'Inter', sans-serif;
-    font-weight: 100;
-  }
-  
-  @keyframes marquee {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-  
+}

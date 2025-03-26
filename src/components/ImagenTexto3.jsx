@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function ImagenYTexto({ image, text, width, height }) {
+export default function ImagenTexto3({ title1, title2, text1, text2, image }) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -47,62 +47,95 @@ export default function ImagenYTexto({ image, text, width, height }) {
 
         }}
       >
-        {/* texto */}
-        <div
-            style={{
-              gridColumn: "2 / span 3",
-              gridRow: "2 / span 3",
-              display: "flex",
-              alignItems: "center"
-
-            }}
-          >
-             <div
-              style={{
-                width:  width, 
-                height: height,
+        {/* title1 */}
+        <div style={{
+            gridColumn: "1 / span 2",
+            gridRow: "1 / span 1",
+            display: "flex",
+            alignSelf: "end",
+        }}>
+            <p style={{
                 display: "flex",
                 marginLeft: "24px",
-                alignItems: "center"
-              }}
-            >
-              <p
-                style={{
-                  color: "white",
-                  fontFamily: "Nunito",
-                  fontWeight: "lighter",
-                  fontSize: "clamp(16px, 2.5vw, 28px)", 
-                  margin: 0,
-                  textAlign: "left", 
-
-                }}
-              >
-                {text}
-              </p>
-            </div>
+                fontFamily: "Nunito",
+                color: "white",
+                fontSize: "48px",
+                fontWeight: "normal"
+              }}>{title1}</p>
         </div>
 
-        {/* Imagen derecha */}
+        {/* text1 */}
+        <div style={{
+            gridColumn: "1 / span 3",
+            gridRow: "2 / span 1",
+            display: "flex",
+            alignSelf: "end",
+        }}>
+            <p style={{
+                display: "flex",
+                marginLeft: "24px",
+                fontFamily: "Nunito",
+                fontWeight: "lighter",
+                fontSize: "24px",
+                color: "white"
+              }}>{text1}</p>
+        </div>
+
+        {/* title2 */}
+        <div style={{
+            gridColumn: "1 / span 2",
+            gridRow: "3 / span 1",
+            display: "flex",
+            alignSelf: "end"
+        }}>
+            <p style={{
+                display: "flex",
+                marginLeft: "24px",
+                fontFamily: "Nunito",
+                color: "white",
+                fontSize: "48px",
+                fontWeight: "normal"
+              }}>{title2}</p>
+        </div>
+
+        {/* text2 */}
+        <div style={{
+            gridColumn: "1 / span 2",
+            gridRow: "4 / span 1",
+            display: "flex",
+            alignSelf: "end"
+        }}>
+            <p style={{
+                marginLeft: "24px",
+                fontFamily: "Nunito",
+                fontWeight: "lighter",
+                fontSize: "24px",
+                color: "white"
+              }}>{text2}</p>
+        </div>
+        
+        {/* image */}
         <div
             style={{
-              gridColumn: "5 / span 2",
-              gridRow: "2 / span 3",
-              display: "flex",
-              overflow: "hidden", 
+                gridColumn: "5 / span 3",
+                gridRow: "1  / span 5",
+                alignSelf: "start",
             }}
           >
             <img
               src={image}
               alt="Imagen"
               style={{
-                width: "calc(100%)",
-                height: "calc(100%)",
-                objectFit: "cover",
-                paddingLeft: "24px",
-                paddingTop: "24px"
+                height: "100%",
+                width: "calc(100% - 24px)",
+                objectFit: "contain",
+                marginLeft: "24px",
+                marginTop: "24px"
               }}
             />
         </div>
+
+
         {/* Grid overlay */}
         <div
           style={{

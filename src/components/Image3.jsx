@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function ImagenYTexto({ image, text, width, height }) {
+export default function Image3({ image1, image2, image3 }) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -34,6 +34,18 @@ export default function ImagenYTexto({ image, text, width, height }) {
         boxSizing: "border-box",
       }}
     >
+      {/* Contenedor del fondo desplazado 24px hacia abajo */}
+      <div
+        style={{
+          position: "absolute",
+          top: "24px", 
+          left: 0,
+          right: 0,
+          height: "calc(100% - 24px)",
+          zIndex: -1, 
+        }}
+      />
+
       <div
         style={{
           position: "relative",
@@ -44,73 +56,88 @@ export default function ImagenYTexto({ image, text, width, height }) {
           gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
           gridTemplateRows: `repeat(${gridRows}, 1fr)`,
           boxSizing: "border-box",
-
         }}
       >
-        {/* texto */}
-        <div
-            style={{
-              gridColumn: "2 / span 3",
-              gridRow: "2 / span 3",
-              display: "flex",
-              alignItems: "center"
-
-            }}
-          >
-             <div
-              style={{
-                width:  width, 
-                height: height,
-                display: "flex",
-                marginLeft: "24px",
-                alignItems: "center"
-              }}
-            >
-              <p
+        <div style={{
+            position: "absolute",
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: `-${extraWidth}px`,
+            zIndex: 0,
+            display: "flex",
+            gap: "94px"
+          }}>
+            <div
                 style={{
-                  color: "white",
-                  fontFamily: "Nunito",
-                  fontWeight: "lighter",
-                  fontSize: "clamp(16px, 2.5vw, 28px)", 
-                  margin: 0,
-                  textAlign: "left", 
-
+                gridColumn: "1 / span 2",
+                gridRow: "1 / span 4",
+                display: "flex",
+                overflow: "hidden", 
+                marginLeft: "24px",
                 }}
-              >
-                {text}
-              </p>
+            >
+                <img
+                    src={image1}
+                    alt="Imagen"
+                    style={{
+                        width: "calc(100% + 19px)",
+                        height: "calc(100% - 24px)",
+                        objectFit: "cover",
+                        paddingTop: "24px"
+                    }}
+                />
+            </div>
+            <div
+                style={{
+                gridColumn: "5 / span 7 ",
+                gridRow: "1 / span 4",
+                display: "flex",
+                overflow: "hidden", 
+                }}
+            >
+                <img
+                    src={image2}
+                    alt="Imagen"
+                    style={{
+                        width: "calc(100%) ",
+                        height: "calc(100% - 24px)",
+                        objectFit: "cover",
+                        paddingTop: "24px"
+                    }}
+                />
+            </div>
+
+            <div
+                style={{
+                gridColumn: "5 / span 7 ",
+                gridRow: "1 / span 4",
+                display: "flex",
+                overflow: "hidden", 
+                marginRight: "24px",
+                }}
+            >
+                <img
+                    src={image3}
+                    alt="Imagen"
+                    style={{
+                        width: "calc(100%) ",
+                        height: "calc(100% - 24px)",
+                        objectFit: "cover",
+                        paddingTop: "24px"
+                    }}
+                />
             </div>
         </div>
 
-        {/* Imagen derecha */}
-        <div
-            style={{
-              gridColumn: "5 / span 2",
-              gridRow: "2 / span 3",
-              display: "flex",
-              overflow: "hidden", 
-            }}
-          >
-            <img
-              src={image}
-              alt="Imagen"
-              style={{
-                width: "calc(100%)",
-                height: "calc(100%)",
-                objectFit: "cover",
-                paddingLeft: "24px",
-                paddingTop: "24px"
-              }}
-            />
-        </div>
         {/* Grid overlay */}
         <div
           style={{
             position: "absolute",
             top: 0,
             bottom: 0,
-            left: `0px`,
-            right: `-${extraWidth}px`, 
+            left: "0px",
+            right: `-${extraWidth}px`,
             zIndex: 10,
           }}
         >
@@ -128,7 +155,7 @@ export default function ImagenYTexto({ image, text, width, height }) {
                 top: 0,
                 bottom: 0,
                 left: 0,
-                right: `${extraWidth}px`, // Dejamos espacio para el borde derecho ancho
+                right: `${extraWidth}px`,
                 backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.5) 24px, transparent 1px)`,
                 backgroundSize: `calc(100% / ${gridColumns}) 100%`,
                 backgroundRepeat: "repeat-x",
@@ -178,4 +205,3 @@ export default function ImagenYTexto({ image, text, width, height }) {
     </div>
   )
 }
-

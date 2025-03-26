@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function ImagenYTexto({ image, text, width, height }) {
+export default function BlockText({text}) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function ImagenYTexto({ image, text, width, height }) {
   }, [])
 
   const gridColumns = 7
-  const gridRows = 5
+  const gridRows = 1
   const paddingLeft = 24
   const paddingRight = 48
   const extraWidth = 24
@@ -38,70 +38,26 @@ export default function ImagenYTexto({ image, text, width, height }) {
         style={{
           position: "relative",
           width: `${gridWidth}px`,
-          aspectRatio: "7/5",
+          aspectRatio: "7/1",
           overflow: "visible",
           display: "grid",
           gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
           gridTemplateRows: `repeat(${gridRows}, 1fr)`,
           boxSizing: "border-box",
-
         }}
       >
-        {/* texto */}
-        <div
-            style={{
-              gridColumn: "2 / span 3",
-              gridRow: "2 / span 3",
-              display: "flex",
-              alignItems: "center"
-
-            }}
-          >
-             <div
-              style={{
-                width:  width, 
-                height: height,
-                display: "flex",
+        <div style={{
+            gridColumn: "1 / span 2",
+            gridRow: "1 / span 1",
+        }}>
+            <p style={{
+                color: "white",
+                fontFamily: "Nunito",
+                fontWeight: "normal",
+                fontSize: "48px",
                 marginLeft: "24px",
-                alignItems: "center"
-              }}
-            >
-              <p
-                style={{
-                  color: "white",
-                  fontFamily: "Nunito",
-                  fontWeight: "lighter",
-                  fontSize: "clamp(16px, 2.5vw, 28px)", 
-                  margin: 0,
-                  textAlign: "left", 
-
-                }}
-              >
-                {text}
-              </p>
-            </div>
-        </div>
-
-        {/* Imagen derecha */}
-        <div
-            style={{
-              gridColumn: "5 / span 2",
-              gridRow: "2 / span 3",
-              display: "flex",
-              overflow: "hidden", 
-            }}
-          >
-            <img
-              src={image}
-              alt="Imagen"
-              style={{
-                width: "calc(100%)",
-                height: "calc(100%)",
-                objectFit: "cover",
-                paddingLeft: "24px",
-                paddingTop: "24px"
-              }}
-            />
+                marginTop: "10px"
+            }}>{text}</p>
         </div>
         {/* Grid overlay */}
         <div
@@ -110,7 +66,7 @@ export default function ImagenYTexto({ image, text, width, height }) {
             top: 0,
             bottom: 0,
             left: `0px`,
-            right: `-${extraWidth}px`, 
+            right: `-${extraWidth}px`, // Extendemos la cuadrícula también
             zIndex: 10,
           }}
         >

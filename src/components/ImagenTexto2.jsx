@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function ImagenYTexto({ image, text, width, height }) {
+export default function ImagenTexto2({ image, text, width, height}) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function ImagenYTexto({ image, text, width, height }) {
         {/* texto */}
         <div
             style={{
-              gridColumn: "2 / span 3",
+              gridColumn: "1 / span 3",
               gridRow: "2 / span 3",
               display: "flex",
               alignItems: "center"
@@ -63,7 +63,8 @@ export default function ImagenYTexto({ image, text, width, height }) {
                 height: height,
                 display: "flex",
                 marginLeft: "24px",
-                alignItems: "center"
+                alignItems: "center",
+                whiteSpace: "pre-line",
               }}
             >
               <p
@@ -71,7 +72,7 @@ export default function ImagenYTexto({ image, text, width, height }) {
                   color: "white",
                   fontFamily: "Nunito",
                   fontWeight: "lighter",
-                  fontSize: "clamp(16px, 2.5vw, 28px)", 
+                  fontSize: "24px", 
                   margin: 0,
                   textAlign: "left", 
 
@@ -82,24 +83,20 @@ export default function ImagenYTexto({ image, text, width, height }) {
             </div>
         </div>
 
-        {/* Imagen derecha */}
+        {/* Imagen  */}
         <div
             style={{
-              gridColumn: "5 / span 2",
-              gridRow: "2 / span 3",
-              display: "flex",
-              overflow: "hidden", 
+                gridColumn: "3 / span 3",
+                gridRow: "1  / span 5"
             }}
           >
             <img
               src={image}
               alt="Imagen"
               style={{
-                width: "calc(100%)",
-                height: "calc(100%)",
+                height: "100%",
                 objectFit: "cover",
-                paddingLeft: "24px",
-                paddingTop: "24px"
+                paddingTop: "24px",
               }}
             />
         </div>

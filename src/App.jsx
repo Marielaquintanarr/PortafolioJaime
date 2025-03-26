@@ -4,7 +4,7 @@ import About from "./pages/About"
 import SwitchBuds from "./pages/SwitchBuds"
 import Titan from "./pages/Titan"
 import Stoool from "./pages/Stoool"
-
+import Redesign from "./pages/Redesign"
 import "./index.css"
 
 function App() {
@@ -32,6 +32,9 @@ function App() {
         <Link to="/stoool" style={{ marginRight: "10px", color: "white" }}>
           Stool
         </Link>
+        <Link to="/redesign" style={{ marginRight: "10px", color: "white" }}>
+          Redesign
+        </Link>
       </nav>
 
       <main style={{ flex: 1 }}>
@@ -41,6 +44,7 @@ function App() {
           <Route path="/switchbuds" element={<SwitchBuds />} />
           <Route path="/titan" element={<Titan />} />
           <Route path="/stoool" element={<Stoool />} />
+          <Route path="/redesign" element={<Redesign />} />
         </Routes>
       </main>
     </div>

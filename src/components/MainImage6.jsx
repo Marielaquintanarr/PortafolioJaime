@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function ImagenYTexto({ image, text, width, height }) {
+export default function MainImage6({ image }) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -27,8 +27,6 @@ export default function ImagenYTexto({ image, text, width, height }) {
         position: "relative",
         width: "100%",
         display: "flex",
-        alignItems: "start",
-        justifyContent: "flex-start",
         paddingLeft: `${paddingLeft}px`,
         paddingRight: `${paddingRight}px`,
         boxSizing: "border-box",
@@ -47,46 +45,11 @@ export default function ImagenYTexto({ image, text, width, height }) {
 
         }}
       >
-        {/* texto */}
+        {/* Imagen izquierda */}
         <div
             style={{
-              gridColumn: "2 / span 3",
-              gridRow: "2 / span 3",
-              display: "flex",
-              alignItems: "center"
-
-            }}
-          >
-             <div
-              style={{
-                width:  width, 
-                height: height,
-                display: "flex",
-                marginLeft: "24px",
-                alignItems: "center"
-              }}
-            >
-              <p
-                style={{
-                  color: "white",
-                  fontFamily: "Nunito",
-                  fontWeight: "lighter",
-                  fontSize: "clamp(16px, 2.5vw, 28px)", 
-                  margin: 0,
-                  textAlign: "left", 
-
-                }}
-              >
-                {text}
-              </p>
-            </div>
-        </div>
-
-        {/* Imagen derecha */}
-        <div
-            style={{
-              gridColumn: "5 / span 2",
-              gridRow: "2 / span 3",
+              gridColumn: "1 / span 7",
+              gridRow: "1 / span 4",
               display: "flex",
               overflow: "hidden", 
             }}
@@ -95,14 +58,14 @@ export default function ImagenYTexto({ image, text, width, height }) {
               src={image}
               alt="Imagen"
               style={{
-                width: "calc(100%)",
-                height: "calc(100%)",
-                objectFit: "cover",
+                width: "calc(100% - 24px)",
+                height: "calc(100% - 24px)",
+                objectFit: "contain",
                 paddingLeft: "24px",
-                paddingTop: "24px"
               }}
             />
-        </div>
+          </div>
+
         {/* Grid overlay */}
         <div
           style={{
