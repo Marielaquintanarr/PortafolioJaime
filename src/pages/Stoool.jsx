@@ -16,9 +16,7 @@ import banco5 from "../assets/banco5.png";
 import banco6 from "../assets/banco6.png";
 import banco7 from "../assets/banco7.png";
 import logo from "../assets/logo.png";
-import MainImage3 from '../components/MainImage3';
-import SBHeader from '../components/SBHeader';
-import MainImage from '../components/MainImage';
+import Footer from '../components/Footer';
 const text = `“The simplicity is a great detail.”
 Academic project: Universidad de Guadalajara
 CNC furniture
@@ -39,6 +37,11 @@ The color change creates a contrast function and forms two visual groups.
 
 Designed for creative spaces, the material in this case plywood was taken into account for CNC cutting and standard anthropometric measurements.`
 
+const text5 = `linkedin
+behance
+instagram`;
+
+
 function Stoool() {
     return (
       <div style={{ width: "100vw", margin: 0, padding: 0, height: "100vh" }}>
@@ -55,6 +58,7 @@ function Stoool() {
         <Image3 image1={banco5} image2={banco6} image3={banco7} />
         <Text2 text={text3} width={"1008px"} height={"182px"} columna={3} cspan = {3} row = {2} rspan = {1}/>
         <Image5 image={render} color={"#A18C8F"} />
+        <Footer text={text5} />
       </div>
     );
   }

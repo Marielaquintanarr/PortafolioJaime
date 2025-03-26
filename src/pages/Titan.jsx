@@ -19,8 +19,9 @@ import Image5 from '../components/Image5';
 import PageHeader from "../components/PageHeader";
 import logo from "../assets/logo.png";
 import Block2 from '../components/Block2';
-import MainImage6 from '../components/MainImage6';
 import Text2 from '../components/Text2';
+import Footer from '../components/Footer';
+
 const text = `Academic project: Universidad de Guadalajara
 Team partners: Adan López López / Valeria Hidalgo y Costilla Castellanos
 Product design
@@ -28,6 +29,10 @@ Product design
 2024
 
 Contribution: Design / Research / C.M.F. / Visualization / CAD`;
+
+const text5 = `linkedin
+behance
+instagram`;
 
 function Titan() {
     return (
@@ -42,9 +47,9 @@ function Titan() {
         <MainImage3_1 image={titan4} color={"#ffff"}/>
         <ImagenYTexto image={titan7} text={"As part of our project development, we conducted field research at a kindergarten, interviewing children aged 3 to 5 through playful activities. The research involved engaging the children in a series of recreational exercises, beginning with educational games and concluding with a group interview. We discovered that the toys children enjoyed the most were those that allowed them to express themselves and engage in imaginative play."} />
         <MainImage4 image={carrito} />
-        <Image6 image={titan5} />
-        <Image7 image={titan6} />
-
+        <Image6 image={titan5}/>
+        <Image7 image={titan6}/>
+        <Footer text={text5}/>
       </div>
     );
   }

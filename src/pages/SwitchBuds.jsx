@@ -14,11 +14,15 @@ import MainImage from '../components/MainImage';
 import SBHeader from '../components/SBHeader';
 import topswitch from "../assets/topswitch.png";
 import logo from "../assets/logo.png"
-
+import Footer from '../components/Footer';
 const text = `Personal project
 Concept design
 4 weeks 
 2024`;
+
+const text5 = `linkedin
+behance
+instagram`;
 
 
 function SwitchBuds() {
@@ -34,6 +38,7 @@ function SwitchBuds() {
         <Image2 image1={switch1} image2={switch1} />
         <Text width={"863px"} height={"182px"} text = {"Designed to integrate the concept of the 'Switch' with its functional purpose, the product features a magnetic opening and closing system for seamless user interaction. The design enhances the user experience by offering a satisfying mechanism that aligns with the playful and versatile nature of the Nintendo Switch. Its compact form ensures portability, making it an ideal accessory for gamers on the go."}/>
         <Image5 image={main_buds2} color={"#b91820"} />
+        <Footer text={text5}/>
       </div>
     );
   }

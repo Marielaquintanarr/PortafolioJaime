@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function Image2_3({ image1, image2}) {
+export default function Image2_3({text, image1, image2}) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -47,6 +47,18 @@ export default function Image2_3({ image1, image2}) {
 
         }}
       >
+
+        <div style={{
+            gridColumn: "1 / span 2",
+            gridRow: "1 / span 1"
+        }}>
+            <p style={{
+                color: "white",
+                fontSize: "48px",
+                fontFamily: "Nunito"
+            }}>{text}</p>
+        </div>
+
         {/* Imagen izquierda */}
         <div
             style={{
@@ -60,38 +72,35 @@ export default function Image2_3({ image1, image2}) {
               src={image1}
               alt="Imagen"
               style={{
-                width: "calc(100%)",
-                height: "calc(100%)",
-                objectFit: "contain",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
                 paddingLeft: "24px",
                 paddingTop: "24px"
               }}
             />
-        </div>
+          </div>
 
         {/* Imagen derecha */}
         <div
             style={{
               gridColumn: "3 / span 5",
-              gridRow: "1 / span 5",
+              gridRow: "1 / span 4",
               display: "flex",
               overflow: "hidden", 
-              marginLeft: "72px",
             }}
           >
             <img
               src={image2}
               alt="Imagen"
               style={{
-                width: "calc(100%)",
-                height: "calc(100%)",
+                height: "100%",
                 objectFit: "contain",
                 paddingLeft: "24px",
                 paddingTop: "24px"
               }}
             />
         </div>
-
         {/* Grid overlay */}
         <div
           style={{

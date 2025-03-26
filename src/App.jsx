@@ -6,6 +6,10 @@ import Titan from "./pages/Titan"
 import Stoool from "./pages/Stoool"
 import Redesign from "./pages/Redesign"
 import "./index.css"
+import Footer from "./components/Footer"
+const text5 = `linkedin
+behance
+instagram`;
 
 function App() {
   return (

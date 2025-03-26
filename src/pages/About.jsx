@@ -2,7 +2,7 @@ import { useState } from 'react';
 import AboutHeader from "../components/AboutHeader"
 import logo from "../assets/logo.png";
 import jaime from "../assets/jaime.png"
-
+import Footer from '../components/Footer';
 
 const text = `My name is Jaime, and I’m an industrial designer passionate about innovation and integrating new technologies into design.
 
@@ -44,12 +44,17 @@ Design
 2021-2024 
 GPA: 3.5/4.0`
 
+const text5 = `linkedin
+behance
+instagram`;
+
 function About() {
   return (
     <div
     style={{
     }}>
         <AboutHeader logo={logo} title={"Hi!"} text={text} text1={text1} text2={text2} text3={text3} image= {jaime}/>
+        <Footer text={text5} />
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function ImagenTexto2({ image, text}) {
+export default function Image2_5({ image1, image2}) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function ImagenTexto2({ image, text}) {
   }, [])
 
   const gridColumns = 7
-  const gridRows = 5
+  const gridRows = 4
   const paddingLeft = 24
   const paddingRight = 48
   const extraWidth = 24
@@ -38,7 +38,7 @@ export default function ImagenTexto2({ image, text}) {
         style={{
           position: "relative",
           width: `${gridWidth}px`,
-          aspectRatio: "7/5",
+          aspectRatio: "7/4",
           overflow: "visible",
           display: "grid",
           gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
@@ -47,58 +47,50 @@ export default function ImagenTexto2({ image, text}) {
 
         }}
       >
-        {/* texto */}
+        {/* Imagen izquierda */}
         <div
             style={{
-              gridColumn: "1 / span 3",
-              gridRow: "2 / span 3",
-              display: "flex",
-              alignItems: "center"
-
-            }}
-          >
-             <div
-              style={{
-                display: "flex",
-                marginLeft: "24px",
-                alignItems: "center",
-                whiteSpace: "pre-line",
-              }}
-            >
-              <p
-                style={{
-                  color: "white",
-                  fontFamily: "Nunito",
-                  fontWeight: "lighter",
-                  fontSize: "24px", 
-                  margin: 0,
-                  textAlign: "left", 
-
-                }}
-              >
-                {text}
-              </p>
-            </div>
-        </div>
-
-        {/* Imagen  */}
-        <div
-            style={{
-                gridColumn: "3 / span 5",
-                gridRow: "1  / span 5"
+              gridColumn: "1 / span 2",
+              gridRow: "1 / span 4",
+              justifyContent: "right",
             }}
           >
             <img
-              src={image}
+              src={image1}
               alt="Imagen"
               style={{
-                width: "100%",
+                width: "80%",
                 height: "100%",
                 objectFit: "contain",
-      
+                paddingLeft: "24px",
+                paddingTop: "24px"
+              }}
+            />
+          </div>
+
+        {/* Imagen derecha */}
+        <div
+            style={{
+              gridColumn: "3 / span 5",
+              gridRow: "1 / span 4",
+              display: "flex",
+              overflow: "hidden", 
+              display: "flex", 
+              justifyContent: "right",
+            }}
+          >
+            <img
+              src={image2}
+              alt="Imagen"
+              style={{
+                width: "80%",
+                height: "100%",
+                objectFit: "contain",
+                paddingTop: "24px"
               }}
             />
         </div>
+
         {/* Grid overlay */}
         <div
           style={{

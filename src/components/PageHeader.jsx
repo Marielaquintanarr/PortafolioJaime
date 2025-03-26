@@ -71,7 +71,6 @@ export default function PageHeader({ title, logo, text}) {
           <div style={{
             borderRadius: "39px",
             backgroundColor: "rgba(255, 255, 255, 0.58)",
-            
             marginBottom: "131px"
           }}>
 
