@@ -21,6 +21,35 @@ export default function ImagenTexto3({ title1, title2, text1, text2, image }) {
   // El ancho real del grid sin contar el extraWidth
   const gridWidth = windowWidth - paddingLeft - paddingRight
 
+  const getFontSize = () => {
+    if (windowWidth >= 1920) {
+      return "48px"
+    } else if (windowWidth >= 1440) {
+      return "36px"
+    } else if (windowWidth >= 1280) {
+      return "30px"
+    } else if (windowWidth >= 768) {
+      return "24px"
+    } else {
+      return "18px"
+    }
+  }
+
+
+  const getFontSize2 = () => {
+    if (windowWidth >= 1920) {
+      return "24px"
+    } else if (windowWidth >= 1440) {
+      return "20px"
+    } else if (windowWidth >= 1280) {
+      return "17px"
+    } else if (windowWidth >= 768) {
+      return "15px"
+    } else {
+      return "9px"
+    }
+  }
+
   return (
     <div
       style={{
@@ -49,7 +78,7 @@ export default function ImagenTexto3({ title1, title2, text1, text2, image }) {
       >
         {/* title1 */}
         <div style={{
-            gridColumn: "1 / span 2",
+            gridColumn: "1 / span 4",
             gridRow: "1 / span 1",
             display: "flex",
             alignSelf: "end",
@@ -59,7 +88,7 @@ export default function ImagenTexto3({ title1, title2, text1, text2, image }) {
                 marginLeft: "24px",
                 fontFamily: "Nunito",
                 color: "white",
-                fontSize: "48px",
+                fontSize: getFontSize(),
                 fontWeight: "normal"
               }}>{title1}</p>
         </div>
@@ -76,14 +105,15 @@ export default function ImagenTexto3({ title1, title2, text1, text2, image }) {
                 marginLeft: "24px",
                 fontFamily: "Nunito",
                 fontWeight: "lighter",
-                fontSize: "24px",
-                color: "white"
+                fontSize: getFontSize2(),
+                color: "white",
+                marginTop: "24px"
               }}>{text1}</p>
         </div>
 
         {/* title2 */}
         <div style={{
-            gridColumn: "1 / span 2",
+            gridColumn: "1 / span 4",
             gridRow: "3 / span 1",
             display: "flex",
             alignSelf: "end"
@@ -93,14 +123,15 @@ export default function ImagenTexto3({ title1, title2, text1, text2, image }) {
                 marginLeft: "24px",
                 fontFamily: "Nunito",
                 color: "white",
-                fontSize: "48px",
-                fontWeight: "normal"
+                fontSize: getFontSize(),
+                fontWeight: "normal",
+                
               }}>{title2}</p>
         </div>
 
         {/* text2 */}
         <div style={{
-            gridColumn: "1 / span 2",
+            gridColumn: "1 / span 3",
             gridRow: "4 / span 1",
             display: "flex",
             alignSelf: "end"
@@ -109,8 +140,9 @@ export default function ImagenTexto3({ title1, title2, text1, text2, image }) {
                 marginLeft: "24px",
                 fontFamily: "Nunito",
                 fontWeight: "lighter",
-                fontSize: "24px",
-                color: "white"
+                fontSize: getFontSize2(),
+                color: "white",
+                marginTop: "24px"
               }}>{text2}</p>
         </div>
         

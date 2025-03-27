@@ -1,0 +1,14 @@
+.link {
+    color: white;
+    font-family: Nunito;
+    font-weight: lighter;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .link:hover {
+    color: #61349e;
+  }
+  
+  

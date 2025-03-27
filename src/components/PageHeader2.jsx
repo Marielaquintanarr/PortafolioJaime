@@ -1,11 +1,6 @@
 "use client"
 import { Routes, Route, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import Home from "../pages/Home"
-import About from "../pages/About"
-import SwitchBuds from "../pages/SwitchBuds"
-import Titan from "../pages/Titan"
-import Stoool from "../pages/Stoool"
 
 export default function PageHeader2({ logo, title, text }) {
   const [windowWidth, setWindowWidth] = useState(0)
@@ -23,6 +18,19 @@ export default function PageHeader2({ logo, title, text }) {
   const paddingRight = 48
   const extraWidth = 24
 
+  const getFontSize = () => {
+    if (windowWidth >= 1920) {
+      return "36px"
+    } else if (windowWidth >= 1440) {
+      return "30px"
+    } else if (windowWidth >= 1280) {
+      return "24px"
+    } else if (windowWidth >= 768) {
+      return "18px"
+    } else {
+      return "14px"
+    }
+  }
   // El ancho real del grid sin contar el extraWidth
   const gridWidth = windowWidth - paddingLeft - paddingRight
 

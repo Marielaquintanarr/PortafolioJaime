@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function PageHeader({ title, logo, text}) {
+export default function PageHeader({ logo, text, title, width, height }) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -13,13 +13,40 @@ export default function PageHeader({ title, logo, text}) {
   }, [])
 
   const gridColumns = 7
-  const gridRows = 3
+  const gridRows = 5
   const paddingLeft = 24
   const paddingRight = 48
   const extraWidth = 24
 
   // El ancho real del grid sin contar el extraWidth
   const gridWidth = windowWidth - paddingLeft - paddingRight
+  const getFontSize = () => {
+    if (windowWidth >= 1920) {
+      return "128px"
+    } else if (windowWidth >= 1440) {
+      return "96px"
+    } else if (windowWidth >= 1280) {
+      return "72px"
+    } else if (windowWidth >= 768) {
+      return "48px"
+    } else {
+      return "32px"
+    }
+  }
+
+  const getFontSize2 = () => {
+    if (windowWidth >= 1920) {
+      return "20px"
+    } else if (windowWidth >= 1440) {
+      return "18px"
+    } else if (windowWidth >= 1280) {
+      return "16px"
+    } else if (windowWidth >= 768) {
+      return "14px"
+    } else {
+      return "12px"
+    }
+  }
 
   return (
     <div
@@ -38,7 +65,7 @@ export default function PageHeader({ title, logo, text}) {
         style={{
           position: "relative",
           width: `${gridWidth}px`,
-          aspectRatio: "7/3",
+          aspectRatio: "7/5",
           overflow: "visible",
           display: "grid",
           gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
@@ -47,78 +74,86 @@ export default function PageHeader({ title, logo, text}) {
 
         }}
       >
-        {/* logo */}
-        <div style={{
-            gridColumn: "1 / span 7",
-            gridRow: "1 / span 1",
-            display: "flex",
-            marginLeft: "24px",
-            marginTop: "24px",
-            width: "61px",
-            height: "48.68px"
-        }}>
-            <img src={logo}></img>
-        </div>
-
-        {/* navbar */}
-        <div style={{
-            gridColumn: "3 / span 3",
-            gridRow: "1 / span 1",
-            display: "flex",
-            marginLeft: "24px",
-            marginTop: "24px",
-        }}>
-          <div style={{
-            borderRadius: "39px",
-            backgroundColor: "rgba(255, 255, 255, 0.58)",
-            marginBottom: "131px"
-          }}>
-
-          </div>
-        </div>
-
         {/* title */}
-        <div style={{
-            gridColumn: "1 / span 7",
-            gridRow: "2 / span 1",
-            display: "flex",
-            marginLeft: "24px",
-        }}>
-            <p style={{
-                color: "white",
-                fontFamily: "Inter",
-                fontSize: "128px",
-                fontWeight: "bold"
-            }}>
-                {title}
-            </p>
-        </div>
-
-        {/* text */}
         <div
             style={{
-              gridColumn: "1 / span 4",
-              gridRow: "3 / span 2",
+              gridColumn: "1 / span 7",
+              gridRow: "2 / span 13",
               display: "flex",
+
             }}
           >
+             <div
+              style={{
+                width:  width, 
+                height: height,
+                display: "flex",
+                marginLeft: "24px",
+              }}
+            >
               <p
                 style={{
-                  paddingLeft: "24px",
+                  color: "white",
+                  fontFamily: "Inter",
+                  fontWeight: "bold",
+                  fontSize: getFontSize(), 
+                  margin: 0,
+                  textAlign: "left", 
+                }}
+              >
+                {title}
+              </p>
+            </div>
+        </div>
+        
+
+        {/* logo */}
+        <div style={{
+              gridColumn: "1 / span 1",
+              gridRow: "1 / span 1",
+              display: "flex",
+
+            }}>
+                <img style={{
+                    paddingLeft: "24px",
+                    paddingTop: "24px",
+                    width: "61px",
+                    height: "48.68px"
+                }} src={logo}></img>
+
+        </div>
+
+        {/* texto */}
+        <div
+            style={{
+              gridColumn: "1 / span 7",
+              gridRow: "3 / span 3",
+              display: "flex",
+
+            }}
+          >
+             <div
+              style={{
+                display: "flex",
+                marginLeft: "24px",
+              }}
+            >
+              <p
+                style={{
                   color: "white",
                   fontFamily: "Nunito",
                   fontWeight: "lighter",
-                  fontSize: "18px", 
+                  fontSize: getFontSize2(), 
                   margin: 0,
+                  paddingTop: "24px",
                   textAlign: "left", 
                   whiteSpace: "pre-line",
-                  marginTop: "24px"
                 }}
               >
                 {text}
               </p>
             </div>
-        
+        </div>
 
         {/* Grid overlay */}
         <div

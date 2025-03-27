@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function ImagenYTexto({ logo, image, text, title, width, height }) {
+export default function SBHeader({ logo, image, text, title, width, height }) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -20,6 +20,33 @@ export default function ImagenYTexto({ logo, image, text, title, width, height }
 
   // El ancho real del grid sin contar el extraWidth
   const gridWidth = windowWidth - paddingLeft - paddingRight
+  const getFontSize = () => {
+    if (windowWidth >= 1920) {
+      return "128px"
+    } else if (windowWidth >= 1440) {
+      return "96px"
+    } else if (windowWidth >= 1280) {
+      return "72px"
+    } else if (windowWidth >= 768) {
+      return "48px"
+    } else {
+      return "32px"
+    }
+  }
+
+  const getFontSize2 = () => {
+    if (windowWidth >= 1920) {
+      return "20px"
+    } else if (windowWidth >= 1440) {
+      return "18px"
+    } else if (windowWidth >= 1280) {
+      return "16px"
+    } else if (windowWidth >= 768) {
+      return "14px"
+    } else {
+      return "12px"
+    }
+  }
 
   return (
     <div
@@ -69,7 +96,7 @@ export default function ImagenYTexto({ logo, image, text, title, width, height }
                   color: "white",
                   fontFamily: "Inter",
                   fontWeight: "bold",
-                  fontSize: "88px", 
+                  fontSize: getFontSize(), 
                   margin: 0,
                   textAlign: "left", 
                 }}
@@ -107,8 +134,6 @@ export default function ImagenYTexto({ logo, image, text, title, width, height }
           >
              <div
               style={{
-                width:  width, 
-                height: height,
                 display: "flex",
                 marginLeft: "24px",
               }}
@@ -118,7 +143,7 @@ export default function ImagenYTexto({ logo, image, text, title, width, height }
                   color: "white",
                   fontFamily: "Nunito",
                   fontWeight: "lighter",
-                  fontSize: "clamp(16px, 2.5vw, 28px)", 
+                  fontSize: getFontSize2(), 
                   margin: 0,
                   paddingTop: "24px",
                   textAlign: "left", 

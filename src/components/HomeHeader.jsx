@@ -1,7 +1,6 @@
 "use client"
 import { Routes, Route, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import Marquee2 from "./Marquee2";
 import Marquee from "./Marquee";
 
 export default function HomeHeader({ logo, text }) {
@@ -23,6 +22,21 @@ export default function HomeHeader({ logo, text }) {
   // El ancho real del grid sin contar el extraWidth
   const gridWidth = windowWidth - paddingLeft - paddingRight
   const altura = ((gridWidth / 7) / 2) + 48
+
+  const getFontSize = () => {
+    if (windowWidth >= 1920) {
+      return "24px"
+    } else if (windowWidth >= 1440) {
+      return "20px"
+    } else if (windowWidth >= 1280) {
+      return "18px"
+    } else if (windowWidth >= 768) {
+      return "14px"
+    } else {
+      return "12px"
+    }
+  }
+  
   return (
     <div
       style={{
@@ -77,17 +91,18 @@ export default function HomeHeader({ logo, text }) {
         {/* text */}
         <div
             style={{
-              gridColumn: "2 / span 1",
+              gridColumn: "2 / span 2",
               gridRow: "4 / span 1",
             }}
           >
               <p
                 style={{
+                  alignSelf: "start",
                   paddingLeft: "24px",
                   color: "white",
                   fontFamily: "Nunito",
                   fontWeight: "lighter",
-                  fontSize: "18px", 
+                  fontSize: getFontSize(), 
                   margin: 0,
                   textAlign: "left", 
                   whiteSpace: "pre-line",

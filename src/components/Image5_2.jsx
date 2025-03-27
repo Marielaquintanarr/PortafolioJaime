@@ -20,6 +20,19 @@ export default function Image5_2({ image, text, color }) {
 
   // El ancho real del grid sin contar el extraWidth
   const gridWidth = windowWidth - paddingLeft - paddingRight
+  const getFontSize = () => {
+    if (windowWidth >= 1920) {
+      return "36px"
+    } else if (windowWidth >= 1440) {
+      return "30px"
+    } else if (windowWidth >= 1280) {
+      return "24px"
+    } else if (windowWidth >= 768) {
+      return "18px"
+    } else {
+      return "14px"
+    }
+  }
 
   return (
     <div
@@ -50,10 +63,10 @@ export default function Image5_2({ image, text, color }) {
         {/* Imagen izquierda */}
         <div
           style={{
-            position: "absolute", // Sacamos la imagen del grid
+            position: "absolute", 
             top: 0,
             left: "-24px",
-            width: "100vw", // Se asegura que la imagen ocupe toda la pantalla
+            width: "100vw", 
             height: "100%", 
             overflow: "hidden",
           }}
@@ -71,7 +84,7 @@ export default function Image5_2({ image, text, color }) {
 
         {/* text */}
         <div style={{
-            gridColumn: "1 / span 1",
+            gridColumn: "1 / span 2",
             gridRow: "4 / span 1",
             display: "flex",
             alignItems: "center",
@@ -79,7 +92,7 @@ export default function Image5_2({ image, text, color }) {
         }}>
             <p style={{
                 color: color,
-                fontSize: "36px",
+                fontSize: getFontSize(),
                 marginLeft: "24px",
                 fontFamily: "Nunito",
                 fontWeight: "lighter"

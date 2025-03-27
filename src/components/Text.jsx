@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function Text({ text, color, width, height }) {
+export default function Text({ text, color }) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -19,7 +19,20 @@ export default function Text({ text, color, width, height }) {
   const extraWidth = 24
 
   const gridWidth = windowWidth - paddingLeft - paddingRight
-
+  const getFontSize = () => {
+    if (windowWidth >= 1920) {
+      return "24px"
+    } else if (windowWidth >= 1440) {
+      return "20px"
+    } else if (windowWidth >= 1280) {
+      return "17px"
+    } else if (windowWidth >= 768) {
+      return "15px"
+    } else {
+      return "9px"
+    }
+  }
+  
   return (
     <div
       style={{
@@ -46,43 +59,24 @@ export default function Text({ text, color, width, height }) {
           boxSizing: "border-box",
         }}
       >
-        {/* Texto posicionado exactamente al inicio de la segunda fila */}
-        <div
-            style={{
-              position: "absolute",
-              top: `calc(${100 / gridRows}% + 24px)`, 
-              left: 0,
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "flex-start",
-              zIndex: 20, 
-            }}
-          >
-            <div
-              style={{
-                width:  width, 
-                height: height,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "flex-start",
-              }}
-            >
-              <p
-                style={{
-                  color: "white",
-                  fontFamily: "Nunito",
-                  fontWeight: "lighter",
-                  fontSize: "clamp(16px, 2.5vw, 28px)", 
-                  margin: 0,
-                  textAlign: "left", 
+        {/* text */}
+        <div style={{
+            gridColumn: "3 / span 3",
+            gridRow: "2 / span 1",
+            display: "flex",
+            alignItems: "center",
+            zIndex: 20,
+        }}>
+            <p style={{
+                color: "white",
+                fontSize: getFontSize(),
+                fontFamily: "Nunito",
+                fontWeight: "lighter".a
+                }}>
+                    {text}
+            </p>
+        </div>
 
-                }}
-              >
-                {text}
-              </p>
-            </div>
-          </div>
         {/* Grid overlay */}
         <div
           style={{

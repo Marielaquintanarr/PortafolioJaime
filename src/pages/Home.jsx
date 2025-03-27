@@ -9,9 +9,9 @@ import Footer from '../components/Footer';
 const text = `Design portfolio
 by Jaime Barba`
 
-const text5 = `linkedin
-behance
-instagram`;
+const text_1 = `linkedin`;
+const text_2 = `behance`;
+const text_3 = `instagram`;
 
 function Home() {
   return (
@@ -23,7 +23,7 @@ function Home() {
         <Image5_2 image={frame} text={"Elite re-dseign"} color={"black"}/>
         <Image5_2 image={titan} text={"Titan"} color={"white"}/>
         <Image5_2 image={render} text={"Stool"} color={"white"}/>
-        <Footer text={text5} />
+        <Footer text1={text_1} text2={text_2} text3={text_3}/>
     </div>
   );
 }

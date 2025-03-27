@@ -1,9 +1,11 @@
 "use client"
-
 import { useEffect, useState } from "react"
+import ImagenTexto2 from "./ImagenTexto2"
+import "./style.css"
 
-export default function Footer({text}) {
+export default function Footer({ text1, text2, text3 }) {
   const [windowWidth, setWindowWidth] = useState(0)
+  const [hover, setHover] = useState(false)
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth)
@@ -18,8 +20,21 @@ export default function Footer({text}) {
   const paddingRight = 48
   const extraWidth = 24
 
-  // El ancho real del grid sin contar el extraWidth
   const gridWidth = windowWidth - paddingLeft - paddingRight
+
+  const getFontSize = () => {
+    if (windowWidth >= 1920) {
+      return "20px"
+    } else if (windowWidth >= 1440) {
+      return "18px"
+    } else if (windowWidth >= 1280) {
+      return "16px"
+    } else if (windowWidth >= 768) {
+      return "14px"
+    } else {
+      return "12px"
+    }
+  }
 
   return (
     <div
@@ -42,41 +57,104 @@ export default function Footer({text}) {
           boxSizing: "border-box",
         }}
       >
-        {/*  nombre */}
-        <div style={{
-            gridColumn: "1 / span 1",
+        {/* Nombre */}
+        <div
+          style={{
+            gridColumn: `1 / span 3`,
             gridRow: "1 / span 1",
-            display: "flex", 
-            alignItems: "center", 
-            justifyContent: "right",
-        }}>
-            <p style={{
-                color: "white",
-                fontFamily: "Nunito",
-                fontWeight: "lighter",
-                fontSize: "20px",
-    
-  
-            }}>2025 @ Jaime Barba</p>
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "left",
+          }}
+        >
+          <p
+            style={{
+              color: "white",
+              fontFamily: "Nunito",
+              fontWeight: "lighter",
+              fontSize: getFontSize(),
+              marginLeft: "24px",
+              position: "relative",
+              zIndex: 20,
+            }}
+          >
+            2025 @ Jaime Barba
+          </p>
         </div>
-
-        {/*  redes */}
-        <div style={{
+        {/* Redes */}
+        <div
+          style={{
             gridColumn: "7 / span 1",
             gridRow: "1 / span 1",
-            display: "flex", 
-            alignItems: "center", 
-            justifyContent: "right",
-        }}>
-            <p style={{
-                color: "white",
-                fontFamily: "Nunito",
-                fontWeight: "lighter",
-                fontSize: "20px",
-                whiteSpace: "pre-line",
-  
-            }}>{text}</p>
+            alignItems: "flex-start",
+            paddingLeft: "24px",
+            paddingTop: "24px",
+            position: "relative",
+            zIndex: 20,
+            display: "flex",
+            flexDirection: "column", // <- este hace la magia
+            gap: "4px" // si quieres separación entre links
+          }}
+        >
+          <a
+            href="https://www.zara.com/mx/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: hover ? "#61349e" : "white",
+              backgroundColor: "transparent",
+              fontFamily: "Nunito",
+              fontWeight: "lighter",
+              fontSize: getFontSize(),
+              padding: "0px",
+              cursor: "pointer",
+              textDecoration: "none",
+            }}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+          >
+            linkedin
+          </a>
+          <a
+            href="https://github.com/Marielaquintanarr/Sistema-padel"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: hover ? "#61349e" : "white",
+              backgroundColor: "transparent",
+              fontFamily: "Nunito",
+              fontWeight: "lighter",
+              fontSize: getFontSize(),
+              padding: "0px",
+              cursor: "pointer",
+              textDecoration: "none",
+            }}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+          >
+            behance
+          </a>
+          <a
+            href="https://www.oracle.com/mx/cloud/sign-in.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: hover ? "#61349e" : "white",
+              backgroundColor: "transparent",
+              fontFamily: "Nunito",
+              fontWeight: "lighter",
+              fontSize: getFontSize(),
+              padding: "0px",
+              cursor: "pointer",
+              textDecoration: "none",
+            }}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+          >
+            instagram
+          </a>
         </div>
+
 
         {/* Grid overlay */}
         <div
@@ -85,7 +163,7 @@ export default function Footer({text}) {
             top: 0,
             bottom: 0,
             left: `0px`,
-            right: `-${extraWidth}px`, 
+            right: `-${extraWidth}px`,
             zIndex: 10,
           }}
         >
@@ -96,21 +174,19 @@ export default function Footer({text}) {
               height: "100%",
             }}
           >
-            {/* Líneas verticales internas */}
+            {/* Líneas verticales */}
             <div
               style={{
                 position: "absolute",
                 top: 0,
                 bottom: 0,
                 left: 0,
-                right: `${extraWidth}px`, // Dejamos espacio para el borde derecho ancho
+                right: `${extraWidth}px`,
                 backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.5) 24px, transparent 1px)`,
                 backgroundSize: `calc(100% / ${gridColumns}) 100%`,
                 backgroundRepeat: "repeat-x",
               }}
             />
-
-            {/* Línea vertical final (borde derecho) con ancho de 24px */}
             <div
               style={{
                 position: "absolute",
@@ -121,7 +197,6 @@ export default function Footer({text}) {
                 backgroundColor: "rgba(0, 0, 0, 0.5)",
               }}
             />
-
             {/* Líneas horizontales */}
             <div
               style={{
@@ -135,8 +210,6 @@ export default function Footer({text}) {
                 backgroundRepeat: "repeat-y",
               }}
             />
-
-            {/* Línea horizontal final (borde inferior) */}
             <div
               style={{
                 position: "absolute",
@@ -153,4 +226,3 @@ export default function Footer({text}) {
     </div>
   )
 }
-

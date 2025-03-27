@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function AboutHeader({ logo, title, text, text1, text2, text3, image}) {
+export default function AboutHeader({ logo, title, text, title1, text1, title2, text2, title3, text3, image}) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -19,6 +19,48 @@ export default function AboutHeader({ logo, title, text, text1, text2, text3, im
   const extraWidth = 24
   const gridWidth = windowWidth - paddingLeft - paddingRight
   const space = (gridWidth / gridColumns) / 2
+  
+  const getFontSize = () => {
+    if (windowWidth >= 1920) {
+      return "128px"
+    } else if (windowWidth >= 1440) {
+      return "96px"
+    } else if (windowWidth >= 1280) {
+      return "72px"
+    } else if (windowWidth >= 768) {
+      return "48px"
+    } else {
+      return "32px"
+    }
+  }
+
+  const getFontSize2 = () => {
+    if (windowWidth >= 1920) {
+      return "24px"
+    } else if (windowWidth >= 1440) {
+      return "20px"
+    } else if (windowWidth >= 1280) {
+      return "17px"
+    } else if (windowWidth >= 768) {
+      return "15px"
+    } else {
+      return "9px"
+    }
+  }
+  const getFontSize3 = () => {
+    if (windowWidth >= 1920) {
+      return "28px"
+    } else if (windowWidth >= 1440) {
+      return "24px"
+    } else if (windowWidth >= 1280) {
+      return "20px"
+    } else if (windowWidth >= 768) {
+      return "18px"
+    } else {
+      return "16px"
+    }
+  }
+  
 
   return (
     <div
@@ -77,15 +119,16 @@ export default function AboutHeader({ logo, title, text, text1, text2, text3, im
         <div
             style={{
               gridColumn: "2 / span 1",
-              gridRow: "2 / span 1",
+              gridRow: " / span 1",
               display: "flex",
             }}
           >
             <p style={{
                 fontFamily: "Inter",
-                fontSize: "128px",
+                fontSize: getFontSize(),
                 fontWeight: "bold",
-                color: "white"
+                color: "white",
+                paddingLeft: "24px"
             }}>
                 {title}
             </p>
@@ -98,77 +141,113 @@ export default function AboutHeader({ logo, title, text, text1, text2, text3, im
               gridRow: "3 / span 1",
               display: "flex",
               alignItems: "center",
-              width: "670px"
             }}
           >
             <p style={{
+                width: "85%",
                 fontFamily: "Nunito",
-                fontSize: "20px",
+                fontSize: getFontSize2(),
                 color: "white",
                 whiteSpace: "pre-line",
-                marginTop: "24px"
+                paddingLeft: "24px"
             }}>
                 {text}
             </p>
         </div>
         
-        {/* text1 */}
+        {/* text1 title */}
         <div
             style={{
               gridColumn: "2 / span 1",
-              gridRow: "5 / span 1",
-              display: "flex",
+              gridRow: "5 / span 5",
               alignItems: "center",
-              whiteSpace: "pre-line",
+              
             }}
           >
             <p style={{
                 fontFamily: "Nunito",
-                fontSize: "18px",
+                fontSize: getFontSize3(),
                 color: "white",
-                marginTop: "24px"
+                marginTop: "24px",
+                fontWeight: "lighter",
+                fontStyle: "italic"
+            }}>
+                {title1}
+            </p>
+            <p style={{
+                fontFamily: "Nunito",
+                fontSize: getFontSize2(),
+                color: "white",
+                marginTop: "24px",
+                fontWeight: "lighter",
+                whiteSpace: "pre-line",
             }}>
                 {text1}
             </p>
         </div>
 
-        {/* text2 */}
-        <div
+
+          {/* text2 */}
+          <div
             style={{
               gridColumn: "3 / span 2",
-              gridRow: "5 / span 2",
+              gridRow: "5 / span 3",
+              alignItems: "center",
               display: "flex",
-              whiteSpace: "pre-line",
-              justifyContent: "center"
+              justifyContent: "center",
+              flexDirection: "column",
             }}
           >
             <p style={{
                 fontFamily: "Nunito",
-                fontSize: "18px",
+                fontSize: getFontSize3(),
                 color: "white",
                 marginTop: "24px",
-                
+                fontWeight: "lighter",
+                fontStyle: "italic"
+            }}>
+                {title2}
+            </p>
+            <p style={{
+                fontFamily: "Nunito",
+                fontSize: getFontSize2(),
+                color: "white",
+                marginTop: "24px",
+                fontWeight: "lighter",
+                whiteSpace: "pre-line",
             }}>
                 {text2}
             </p>
         </div>
 
-        {/* text3 */}
+        {/* text3 title */}
         <div
             style={{
               gridColumn: "5 / span 2",
-              gridRow: "5 / span 2",
+              gridRow: "5 / span 3",
+              alignItems: "center",
               display: "flex",
-              whiteSpace: "pre-line",
-              justifyContent: "center"
+              justifyContent: "center",
+              flexDirection: "column",
             }}
           >
             <p style={{
                 fontFamily: "Nunito",
-                fontSize: "18px",
+                fontSize: getFontSize3(),
                 color: "white",
                 marginTop: "24px",
-                
+                fontWeight: "lighter",
+                fontStyle: "italic"
+            }}>
+                {title3}
+            </p>
+            <p style={{
+                fontFamily: "Nunito",
+                fontSize: getFontSize2(),
+                color: "white",
+                marginTop: "24px",
+                fontWeight: "lighter",
+                whiteSpace: "pre-line",
             }}>
                 {text3}
             </p>

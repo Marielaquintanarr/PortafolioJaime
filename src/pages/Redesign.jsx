@@ -1,7 +1,7 @@
 import logo from "../assets/logo.png"
 import ImagenTexto2 from "../components/ImagenTexto2";
 import Block2 from "../components/Block2";
-import PageHeader2 from "../components/PageHeader2";
+import PageHeader from "../components/PageHeader";
 import ImagenTexto3 from "../components/ImagenTexto3";
 import elite1 from "../assets/elite1.png"
 import elite2 from "../assets/elite2.png";
@@ -18,7 +18,7 @@ import Image2_3 from "../components/Image2_3";
 import Image2_4 from "../components/Image2_4";
 import Image2_5 from "../components/Image2_5";
 import Footer from "../components/Footer";
-
+import Image2_6 from "../components/Image2_6";
 const text = `Internship project: Nucle solutions
 Team partner: Juan Pablo Torres Gonzalez
 UX/UI re-design
@@ -39,15 +39,15 @@ Archaic buttons and system.
 Difficult to read and distinguish key details.
 Mobile app.`;
 
-const text5 = `linkedin
-behance
-instagram`;
+const text_1 = `linkedin`;
+const text_2 = `behance`;
+const text_3 = `instagram`;
 
 
 function Redesign() {
   return (
     <div>
-      <PageHeader2 title={"Elite re-design"} logo={logo} text={text}/>
+      <PageHeader title={"Elite re-design"} logo={logo} text={text}/>
       <ImagenTexto2 image={elite1} text={text2}/>
       <Block2 />
       <Block2 />
@@ -56,17 +56,17 @@ function Redesign() {
       <Block2 />
       <Block2 />
       <BlockText text={"Main screens"}/>
-      <Image2_3 image1={elite4} image2={elite3}/>
+      <Image2_6 image1={elite4} image2={elite3}/>
       <Block2 />
       <Image2_4 image1={elite5} image2={elite6}/>
       <Block2 />
       <Block2 />
       <BlockText text={"Pop-up menus"}/>
-      <Image2_5 image1={elite7} image2={elite8}/>
+      <Image2_6 image1={elite7} image2={elite8}/>
       <Block2 />
       <Image2_4 image1={elite9} image2={elite10}/>
       <Block2 />
-      <Footer text={text5}/>
+      <Footer text1={text_1} text2={text_2} text3={text_3}/>
     </div>
   );
 }

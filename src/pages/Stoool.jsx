@@ -37,9 +37,9 @@ The color change creates a contrast function and forms two visual groups.
 
 Designed for creative spaces, the material in this case plywood was taken into account for CNC cutting and standard anthropometric measurements.`
 
-const text5 = `linkedin
-behance
-instagram`;
+const text_1 = `linkedin`;
+const text_2 = `behance`;
+const text_3 = `instagram`;
 
 
 function Stoool() {
@@ -58,7 +58,7 @@ function Stoool() {
         <Image3 image1={banco5} image2={banco6} image3={banco7} />
         <Text2 text={text3} width={"1008px"} height={"182px"} columna={3} cspan = {3} row = {2} rspan = {1}/>
         <Image5 image={render} color={"#A18C8F"} />
-        <Footer text={text5} />
+        <Footer text1={text_1} text2={text_2} text3={text_3}/>
       </div>
     );
   }

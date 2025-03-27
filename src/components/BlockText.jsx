@@ -20,6 +20,19 @@ export default function BlockText({text}) {
 
   // El ancho real del grid sin contar el extraWidth
   const gridWidth = windowWidth - paddingLeft - paddingRight
+  const getFontSize = () => {
+    if (windowWidth >= 1920) {
+      return "48px"
+    } else if (windowWidth >= 1440) {
+      return "36px"
+    } else if (windowWidth >= 1280) {
+      return "30px"
+    } else if (windowWidth >= 768) {
+      return "24px"
+    } else {
+      return "18px"
+    }
+  }
 
   return (
     <div
@@ -47,14 +60,14 @@ export default function BlockText({text}) {
         }}
       >
         <div style={{
-            gridColumn: "1 / span 2",
+            gridColumn: "1 / span 3",
             gridRow: "1 / span 1",
         }}>
             <p style={{
                 color: "white",
                 fontFamily: "Nunito",
                 fontWeight: "normal",
-                fontSize: "48px",
+                fontSize: getFontSize(),
                 marginLeft: "24px",
                 marginTop: "10px"
             }}>{text}</p>

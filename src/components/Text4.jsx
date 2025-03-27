@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function ImagenYTexto({ image, text, width, height }) {
+export default function Text4({ text, color }) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -13,12 +13,11 @@ export default function ImagenYTexto({ image, text, width, height }) {
   }, [])
 
   const gridColumns = 7
-  const gridRows = 5
+  const gridRows = 3
   const paddingLeft = 24
   const paddingRight = 48
   const extraWidth = 24
 
-  // El ancho real del grid sin contar el extraWidth
   const gridWidth = windowWidth - paddingLeft - paddingRight
   const getFontSize = () => {
     if (windowWidth >= 1920) {
@@ -33,15 +32,17 @@ export default function ImagenYTexto({ image, text, width, height }) {
       return "9px"
     }
   }
-
-  const getColumns = () => {
-    if (windowWidth < 768) {
-      return [2, 3]
-    }else{
-      return [2, 3]
+  const getMargin = () => {
+    if (windowWidth <= 768) {
+        return 0
+    }else if (windowWidth >= 1920 || windowWidth >= 1440 || windowWidth >= 1280){
+        return 72
+    }
+    else{
+        return 48
     }
   }
-
+  
   return (
     <div
       style={{
@@ -50,6 +51,7 @@ export default function ImagenYTexto({ image, text, width, height }) {
         display: "flex",
         alignItems: "start",
         justifyContent: "flex-start",
+        backgroundColor: color,
         paddingLeft: `${paddingLeft}px`,
         paddingRight: `${paddingRight}px`,
         boxSizing: "border-box",
@@ -59,71 +61,34 @@ export default function ImagenYTexto({ image, text, width, height }) {
         style={{
           position: "relative",
           width: `${gridWidth}px`,
-          aspectRatio: "7/5",
+          aspectRatio: "7/3",
           overflow: "visible",
           display: "grid",
           gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
           gridTemplateRows: `repeat(${gridRows}, 1fr)`,
           boxSizing: "border-box",
-
         }}
       >
-        {/* texto */}
-        <div
-            style={{
-              gridColumn: `${getColumns()[0]} / span ${getColumns()[-1]})`,
-              gridRow: "2 / span 3",
-              display: "flex",
-              alignItems: "center"
-
-            }}
-          >
-             <div
-              style={{
-                width:  width, 
-                height: height,
-                display: "flex",
-                marginLeft: "24px",
-                alignItems: "center"
-              }}
-            >
-              <p
-                style={{
-                  color: "white",
-                  fontFamily: "Nunito",
-                  fontWeight: "lighter",
-                  fontSize: getFontSize(), 
-                  margin: 0,
-                  textAlign: "left", 
-
-                }}
-              >
-                {text}
-              </p>
-            </div>
+        {/* text */}
+        <div style={{
+            gridColumn: "3 / span 3",
+            gridRow: "2 / span 1",
+            display: "flex",
+            alignItems: "center",
+            zIndex: 20,
+            margin: `${extraWidth}px`,
+        }}>
+            <p style={{
+                color: "white",
+                fontSize: getFontSize(),
+                fontFamily: "Nunito",
+                fontWeight: "lighter",
+                
+                }}>
+                    {text}
+            </p>
         </div>
 
-        {/* Imagen derecha */}
-        <div
-            style={{
-              gridColumn: "5 / span 2",
-              gridRow: "2 / span 3",
-              display: "flex",
-              overflow: "hidden", 
-            }}
-          >
-            <img
-              src={image}
-              alt="Imagen"
-              style={{
-                width: "calc(100%)",
-                height: "calc(100%)",
-                objectFit: "cover",
-                paddingLeft: "24px",
-                paddingTop: "24px"
-              }}
-            />
-        </div>
         {/* Grid overlay */}
         <div
           style={{
@@ -131,7 +96,7 @@ export default function ImagenYTexto({ image, text, width, height }) {
             top: 0,
             bottom: 0,
             left: `0px`,
-            right: `-${extraWidth}px`, 
+            right: `-${extraWidth}px`,
             zIndex: 10,
           }}
         >

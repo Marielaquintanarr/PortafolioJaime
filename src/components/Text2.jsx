@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function Text2({ text, color, width, height, columna, cspan, row, rspan}) {
+export default function Text2({ text, color, columna, cspan, row, rspan}) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -19,6 +19,19 @@ export default function Text2({ text, color, width, height, columna, cspan, row,
   const extraWidth = 24
 
   const gridWidth = windowWidth - paddingLeft - paddingRight
+  const getFontSize = () => {
+    if (windowWidth >= 1920) {
+      return "24px"
+    } else if (windowWidth >= 1440) {
+      return "20px"
+    } else if (windowWidth >= 1280) {
+      return "17px"
+    } else if (windowWidth >= 768) {
+      return "15px"
+    } else {
+      return "9px"
+    }
+  }
 
   return (
     <div
@@ -59,8 +72,6 @@ export default function Text2({ text, color, width, height, columna, cspan, row,
           >
              <div
               style={{
-                width:  width, 
-                height: height,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center"
@@ -71,7 +82,7 @@ export default function Text2({ text, color, width, height, columna, cspan, row,
                   color: "white",
                   fontFamily: "Nunito",
                   fontWeight: "lighter",
-                  fontSize: "clamp(16px, 2.5vw, 28px)", 
+                  fontSize: getFontSize(), 
                   margin: 0,
                   textAlign: "left", 
                   whiteSpace: "pre-line",

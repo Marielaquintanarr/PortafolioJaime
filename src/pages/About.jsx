@@ -8,8 +8,6 @@ const text = `My name is Jaime, and I’m an industrial designer passionate abou
 
 With a strong ability to learn and adapt to evolving environments, I bring a creative and user-centered approach to problem-solving, continually seeking ways to push the boundaries of design.`
 const text2 =`
-Experience
-
 UX/UI INTERN
 NUCLEA SOLUTIONS
 2025-CURRENT 
@@ -24,8 +22,6 @@ MAQ Y MAQUETAS
 `
 
 const text3 =`
-Projects
-
 Concept deseign for coffe station
 Fromm diseño elemental    
 2025
@@ -36,13 +32,12 @@ Sala doce Cafe
 `
 
 const text1 =`
-Education
-
 Universidad de Guadalajara
 Bachelor´s degree in Industrial
 Design 
 2021-2024 
 GPA: 3.5/4.0`
+
 
 const text5 = `linkedin
 behance
@@ -53,7 +48,7 @@ function About() {
     <div
     style={{
     }}>
-        <AboutHeader logo={logo} title={"Hi!"} text={text} text1={text1} text2={text2} text3={text3} image= {jaime}/>
+        <AboutHeader logo={logo} title={"Hi!"} text={text} title1={"Education"} text1={text1} title2={'Experience'} text2={text2} title3={'Projects'} text3={text3} image= {jaime}/>
         <Footer text={text5} />
     </div>
   );

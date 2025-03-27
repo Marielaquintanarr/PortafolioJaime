@@ -20,6 +20,19 @@ export default function ImagenTexto2({ image, text}) {
 
   // El ancho real del grid sin contar el extraWidth
   const gridWidth = windowWidth - paddingLeft - paddingRight
+  const getFontSize = () => {
+    if (windowWidth >= 1920) {
+      return "24px"
+    } else if (windowWidth >= 1440) {
+      return "20px"
+    } else if (windowWidth >= 1280) {
+      return "17px"
+    } else if (windowWidth >= 768) {
+      return "15px"
+    } else {
+      return "9px"
+    }
+  }
 
   return (
     <div
@@ -70,10 +83,9 @@ export default function ImagenTexto2({ image, text}) {
                   color: "white",
                   fontFamily: "Nunito",
                   fontWeight: "lighter",
-                  fontSize: "24px", 
-                  margin: 0,
+                  fontSize: getFontSize(), 
+                  marginRight: "10px",
                   textAlign: "left", 
-
                 }}
               >
                 {text}
