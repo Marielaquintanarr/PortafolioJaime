@@ -75,7 +75,6 @@ export default function Image2_5({ image1, image2}) {
               gridRow: "1 / span 4",
               display: "flex",
               overflow: "hidden", 
-              display: "flex", 
               justifyContent: "right",
             }}
           >

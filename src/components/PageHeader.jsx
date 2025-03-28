@@ -48,6 +48,20 @@ export default function PageHeader({ logo, text, title, width, height }) {
     }
   }
 
+  const getDimensions = () => {
+    if (windowWidth >= 1920) {
+      return [61, 48.68];
+    } else if (windowWidth >= 1440) {
+      return [48, 38.3]; // 80% aprox.
+    } else if (windowWidth >= 1280) {
+      return [42, 33.5]; // 70% aprox.
+    } else if (windowWidth >= 768) {
+      return [32, 25.5]; // 52% aprox.
+    } else {
+      return [24, 19]; // 40% aprox.
+    }
+  }
+
   return (
     <div
       style={{
@@ -117,8 +131,8 @@ export default function PageHeader({ logo, text, title, width, height }) {
                 <img style={{
                     paddingLeft: "24px",
                     paddingTop: "24px",
-                    width: "61px",
-                    height: "48.68px"
+                    width: `${getDimensions()[0]}px`,
+                    height: `${getDimensions()[1]}px`,
                 }} src={logo}></img>
 
         </div>
