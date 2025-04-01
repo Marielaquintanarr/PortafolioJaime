@@ -7,6 +7,7 @@ import render from "../assets/renderstool.png";
 import Image5_2 from '../components/Image5_2';
 import Footer from '../components/Footer';
 import BlockText2 from '../components/BlockText2';
+import MainImageColor from '../components/MainImageColor';
 const text = `Design portfolio
 by Jaime Barba`
 
@@ -22,7 +23,7 @@ function Home() {
         <HomeHeader logo={logo}/>
         <BlockText2 text={text}/>
         <Image5_2 image={buds1} text={"Switch-buds"} color={"white"} />
-        <Image5_2 image={frame} text={"Elite re-dseign"} color={"black"}/>
+        <MainImageColor image={frame}label={"Elite re-design"} color={"white"} colorText={"black"} />
         <Image5_2 image={titan} text={"Titan"} color={"white"}/>
         <Image5_2 image={render} text={"Stool"} color={"white"}/>
         <Footer text1={text_1} text2={text_2} text3={text_3}/>

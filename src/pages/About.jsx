@@ -12,9 +12,13 @@ import Redesign from "../pages/Redesign"
 import Navbar from "../components/Navbar"; 
 
 
-const text = `My name is Jaime, and I’m an industrial designer passionate about innovation and integrating new technologies into design.
+const text = `My name is Jaime, and I’m an industrial designer passionate about innovation and 
+integrating new technologies into design.
 
-With a strong ability to learn and adapt to evolving environments, I bring a creative and user-centered approach to problem-solving, continually seeking ways to push the boundaries of design.`
+With a strong ability to learn and adapt to evolving environments, I bring a creative
+and user-centered approach to problem-solving, continually seeking ways to push the 
+boundaries of design.`
+
 const text2 =`
 UX/UI INTERN
 NUCLEA SOLUTIONS

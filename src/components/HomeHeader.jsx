@@ -91,14 +91,12 @@ export default function HomeHeader({ logo, text }) {
 
         }}
       >
-        
-
         <div style={{
               gridColumn: "1 / span 7",
               gridRow: "2 / span 2",
               marginTop: "-24px",
             }}>
-              <div style={{ overflow: "hidden", whiteSpace: "nowrap", width: "100vw", color: "white" }}>
+              <div style={{ overflow: "hidden", whiteSpace: "nowrap", width: "100vw", color: "white", marginLeft: "-24px" }}>
                     <motion.div
                       style={{ display: "flex" }}
                       initial={{ x: 0 }}

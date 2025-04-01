@@ -13,7 +13,7 @@ export default function AboutHeader({ logo, title, text, title1, text1, title2, 
   }, [])
 
   const gridColumns = 7
-  const gridRows = 7
+  const gridRows = 6
   const paddingLeft = 24
   const paddingRight = 48
   const extraWidth = 24
@@ -91,7 +91,7 @@ export default function AboutHeader({ logo, title, text, title1, text1, title2, 
         style={{
           position: "relative",
           width: `${gridWidth}px`,
-          aspectRatio: "7/7",
+          aspectRatio: "7/6",
           overflow: "visible",
           display: "grid",
           gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
@@ -104,7 +104,7 @@ export default function AboutHeader({ logo, title, text, title1, text1, title2, 
         {/* imagen */}
         <div style={{
             gridColumn: "5 / span 2",
-            gridRow: "2 / span 2",
+            gridRow: "1 / span 2",
             display: "flex",
         }}>
             <img style={{
@@ -119,6 +119,8 @@ export default function AboutHeader({ logo, title, text, title1, text1, title2, 
               gridColumn: "2 / span 1",
               gridRow: " / span 1",
               display: "flex",
+              justifyContent: "start",
+              alignItems: "flex-end", 
             }}
           >
             <p style={{
@@ -126,7 +128,6 @@ export default function AboutHeader({ logo, title, text, title1, text1, title2, 
                 fontSize: getFontSize(),
                 fontWeight: "bold",
                 color: "white",
-                paddingLeft: "24px"
             }}>
                 {title}
             </p>
@@ -136,7 +137,7 @@ export default function AboutHeader({ logo, title, text, title1, text1, title2, 
         <div
             style={{
               gridColumn: "2 / span 4",
-              gridRow: "3 / span 1",
+              gridRow: "2 / span 1",
               display: "flex",
               alignItems: "center",
             }}
@@ -147,110 +148,91 @@ export default function AboutHeader({ logo, title, text, title1, text1, title2, 
                 fontSize: getFontSize2(),
                 color: "white",
                 whiteSpace: "pre-line",
-                paddingLeft: "24px"
             }}>
                 {text}
             </p>
         </div>
         
-        {/* text1 title */}
-        <div
-            style={{
-              gridColumn: "2 / span 1",
-              gridRow: "5 / span 5",
-              alignItems: "center",
-              
-            }}
-          >
-            <p style={{
-                fontFamily: "Nunito",
-                fontSize: getFontSize3(),
-                color: "white",
-                marginTop: "24px",
-                fontWeight: "lighter",
-                fontStyle: "italic"
-            }}>
-                {title1}
-            </p>
-            <p style={{
-                fontFamily: "Nunito",
-                fontSize: getFontSize2(),
-                color: "white",
-                marginTop: "24px",
-                fontWeight: "lighter",
-                whiteSpace: "pre-line",
-            }}>
-                {text1}
-            </p>
-        </div>
+        {/* experience */}
+
+              {/* experience 1 */}
+              <div style={{
+                gridColumn: "2 / span 1",
+                gridRow: "4 / span 2",
+                display: "flex",
+                flexDirection: "column"
+              }}>
+                <p style={{
+                  fontFamily: "Nunito",
+                  fontSize: getFontSize3(),
+                  color: "white",
+                  fontWeight: "lighter",
+                  fontStyle: "italic"
+                }}>{title1}</p>
+
+                <p style={{
+                  fontFamily: "Nunito",
+                  fontSize: getFontSize2(),
+                  color: "white",
+                  marginTop: "24px",
+                  fontWeight: "lighter",
+                  whiteSpace: "pre-line",
+                }}>{text1}</p>
+              </div>
 
 
-          {/* text2 */}
-          <div
-            style={{
-              gridColumn: "3 / span 2",
-              gridRow: "5 / span 3",
-              alignItems: "center",
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-            }}
-          >
-            <p style={{
-                fontFamily: "Nunito",
-                fontSize: getFontSize3(),
-                color: "white",
-                marginTop: "24px",
-                fontWeight: "lighter",
-                fontStyle: "italic"
-            }}>
-                {title2}
-            </p>
-            <p style={{
-                fontFamily: "Nunito",
-                fontSize: getFontSize2(),
-                color: "white",
-                marginTop: "24px",
-                fontWeight: "lighter",
-                whiteSpace: "pre-line",
-            }}>
-                {text2}
-            </p>
-        </div>
+              {/* experience 2 */}
+              <div style={{
+                gridColumn: "3 / span 2",
+                gridRow: "4 / span 2",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center"
+              }}>
+                <p style={{
+                  fontFamily: "Nunito",
+                  fontSize: getFontSize3(),
+                  color: "white",
+                  fontWeight: "lighter",
+                  fontStyle: "italic"
+                }}>{title2}</p>
 
-        {/* text3 title */}
-        <div
-            style={{
-              gridColumn: "5 / span 2",
-              gridRow: "5 / span 3",
-              alignItems: "center",
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-            }}
-          >
-            <p style={{
-                fontFamily: "Nunito",
-                fontSize: getFontSize3(),
-                color: "white",
-                marginTop: "24px",
-                fontWeight: "lighter",
-                fontStyle: "italic"
-            }}>
-                {title3}
-            </p>
-            <p style={{
-                fontFamily: "Nunito",
-                fontSize: getFontSize2(),
-                color: "white",
-                marginTop: "24px",
-                fontWeight: "lighter",
-                whiteSpace: "pre-line",
-            }}>
-                {text3}
-            </p>
-        </div>
+                <p style={{
+                  fontFamily: "Nunito",
+                  fontSize: getFontSize2(),
+                  color: "white",
+                  marginTop: "24px",
+                  fontWeight: "lighter",
+                  whiteSpace: "pre-line",
+                }}>{text2}</p>
+              </div>
 
+              {/* experience 3 */}
+              <div style={{
+                gridColumn: "5 / span 2",
+                gridRow: "4 / span 2",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center"
+              }}>
+                <p style={{
+                  fontFamily: "Nunito",
+                  fontSize: getFontSize3(),
+                  color: "white",
+                  fontWeight: "lighter",
+                  fontStyle: "italic"
+                }}>{title3}</p>
+
+                <p style={{
+                  fontFamily: "Nunito",
+                  fontSize: getFontSize2(),
+                  color: "white",
+                  marginTop: "24px",
+                  fontWeight: "lighter",
+                  whiteSpace: "pre-line",
+                }}>{text3}</p>
+              </div>
+    
         {/* Grid overlay */}
         <div
           style={{
