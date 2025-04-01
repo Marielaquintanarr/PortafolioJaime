@@ -7,7 +7,17 @@
     transition: color 0.3s ease;
   }
   
-  .link:hover {
+  .link:hoverLinkedin {
+    color: #61349e;
+  }
+  
+
+  .link:hoverBehance {
+    color: #61349e;
+  }
+  
+
+  .link:hoverInstagram {
     color: #61349e;
   }
   

@@ -13,7 +13,7 @@ export default function SBHeader({ logo, image, text, title, width, height }) {
   }, [])
 
   const gridColumns = 7
-  const gridRows = 5
+  const gridRows = 4
   const paddingLeft = 24
   const paddingRight = 48
   const extraWidth = 24
@@ -79,7 +79,7 @@ export default function SBHeader({ logo, image, text, title, width, height }) {
         style={{
           position: "relative",
           width: `${gridWidth}px`,
-          aspectRatio: "7/5",
+          aspectRatio: "7/4",
           overflow: "visible",
           display: "grid",
           gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
@@ -92,7 +92,7 @@ export default function SBHeader({ logo, image, text, title, width, height }) {
         <div
             style={{
               gridColumn: "1 / span 7",
-              gridRow: "2 / span 13",
+              gridRow: "1 / span 1",
               display: "flex",
 
             }}
@@ -121,7 +121,7 @@ export default function SBHeader({ logo, image, text, title, width, height }) {
         </div>
         
 
-        {/* logo */}
+        {/* logo
         <div style={{
               gridColumn: "1 / span 1",
               gridRow: "1 / span 1",
@@ -135,13 +135,13 @@ export default function SBHeader({ logo, image, text, title, width, height }) {
                     height: `${getDimensions()[1]}px`,
                 }} src={logo}></img>
 
-        </div>
+        </div> */}
 
         {/* texto */}
         <div
             style={{
               gridColumn: "1 / span 3",
-              gridRow: "3 / span 3",
+              gridRow: "2 / span 1",
               display: "flex",
 
             }}
@@ -169,7 +169,7 @@ export default function SBHeader({ logo, image, text, title, width, height }) {
             </div>
         </div>
 
-        {/* imagen */}
+        {/* imagen
         <div
             style={{
                 gridColumn: "3 / -1",
@@ -188,7 +188,8 @@ export default function SBHeader({ logo, image, text, title, width, height }) {
                 top: "-24px"
               }}
             />
-        </div>
+        </div> */}
+
         {/* Grid overlay */}
         <div
           style={{

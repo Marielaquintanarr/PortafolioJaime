@@ -50,10 +50,7 @@ function Redesign() {
       <PageHeader title={"Elite re-design"} logo={logo} text={text}/>
       <ImagenTexto2 image={elite1} text={text2}/>
       <Block2 />
-      <Block2 />
-      <Block2 />
       <ImagenTexto3 title1={"The challenge"} title2={"Areas for improvement"} text1={text3} text2={text4} image={elite2}/>
-      <Block2 />
       <Block2 />
       <BlockText text={"Main screens"}/>
       <Image2_6 image1={elite4} image2={elite3}/>

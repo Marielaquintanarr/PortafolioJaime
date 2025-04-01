@@ -3,6 +3,14 @@ import AboutHeader from "../components/AboutHeader"
 import logo from "../assets/logo.png";
 import jaime from "../assets/jaime.png"
 import Footer from '../components/Footer';
+import { Routes, Route } from "react-router-dom";
+import Home from "../pages/Home";
+import SwitchBuds from "../pages/SwitchBuds";
+import Titan from "../pages/Titan";
+import Stoool from "../pages/Stoool";
+import Redesign from "../pages/Redesign"
+import Navbar from "../components/Navbar"; 
+
 
 const text = `My name is Jaime, and I’m an industrial designer passionate about innovation and integrating new technologies into design.
 

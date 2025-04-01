@@ -60,7 +60,6 @@ export default function AboutHeader({ logo, title, text, title1, text1, title2, 
       return "16px"
     }
   }
-
   const getDimensions = () => {
     if (windowWidth >= 1920) {
       return [61, 48.68];
@@ -101,6 +100,7 @@ export default function AboutHeader({ logo, title, text, title1, text1, title2, 
 
         }}
       >
+        
         {/* imagen */}
         <div style={{
             gridColumn: "5 / span 2",
@@ -111,21 +111,6 @@ export default function AboutHeader({ logo, title, text, title1, text1, title2, 
                 borderRadius: "20px",
                 paddingLeft: `${space + 24}px`
             }} src={image}></img>
-        </div>
-
-        {/* logo */}
-        <div style={{
-              gridColumn: "1 / span 1",
-              gridRow: "1 / span 1",
-              display: "flex",
-
-            }}>
-                <img style={{
-                    paddingLeft: "24px",
-                    paddingTop: "24px",
-                    width: `${getDimensions()[0]}px`,
-                    height: `${getDimensions()[1]}px`
-                }} src={logo}></img>
         </div>
 
         {/* title */}

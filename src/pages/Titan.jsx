@@ -39,7 +39,6 @@ function Titan() {
       <div style={{ width: "100vw", margin: 0, padding: 0, height: "100vh" }}>
         <PageHeader logo={logo} title={"Titan"} text={text} />
         <Block2 />
-        <Block2 />
         <Image5 image={titan} color={"#0704B1"} />
         <Text2 columna={3} cspan={3} row={2} rspan={1}text={"Titan is a multifunctional toy designed for children aged 3 to 5, aimed at fostering physical and cognitive development through active play. Titan was design with a modular design, Titan can transform into different configurations, such as a balance bike and scooter, promoting both creativity and active play. Titan´s interchangeable and optional accessories further encourage imaginative play."}/>
         <Image2_1 image1={titan1} image2={titan2} />

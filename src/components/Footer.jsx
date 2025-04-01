@@ -6,6 +6,10 @@ import "./style.css"
 export default function Footer({ text1, text2, text3 }) {
   const [windowWidth, setWindowWidth] = useState(0)
   const [hover, setHover] = useState(false)
+  const [hoverLinkedin, setHoverLinkedin] = useState(false);
+  const [hoverBehance, setHoverBehance] = useState(false);
+  const [hoverInstagram, setHoverInstagram] = useState(false);
+
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth)
@@ -35,6 +39,10 @@ export default function Footer({ text1, text2, text3 }) {
       return "12px"
     }
   }
+  
+  const hoverColorLinkedin = hoverLinkedin ? "#61349e" : "white"
+  const hoverColorBehance = hoverBehance ? "#61349e" : "white"
+  const hoverColorInstagram = hoverInstagram ? "#61349e" : "white"
 
   return (
     <div
@@ -86,22 +94,24 @@ export default function Footer({ text1, text2, text3 }) {
           style={{
             gridColumn: "7 / span 1",
             gridRow: "1 / span 1",
-            alignItems: "flex-start",
             paddingLeft: "24px",
             paddingTop: "24px",
             position: "relative",
             zIndex: 20,
             display: "flex",
-            flexDirection: "column", // <- este hace la magia
-            gap: "4px" // si quieres separación entre links
+            flexDirection: "column", 
+            gap: "4px" ,
+            justifyContent: "center",
+            alignItems: "flex-end"
           }}
         >
           <a
             href="https://www.zara.com/mx/"
             target="_blank"
             rel="noopener noreferrer"
+            className="link"
             style={{
-              color: hover ? "#61349e" : "white",
+              color: hoverColorLinkedin,
               backgroundColor: "transparent",
               fontFamily: "Nunito",
               fontWeight: "lighter",
@@ -110,8 +120,8 @@ export default function Footer({ text1, text2, text3 }) {
               cursor: "pointer",
               textDecoration: "none",
             }}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
+            onMouseEnter={() => setHoverLinkedin(true)}
+            onMouseLeave={() => setHoverLinkedin(false)}
           >
             linkedin
           </a>
@@ -120,7 +130,7 @@ export default function Footer({ text1, text2, text3 }) {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              color: hover ? "#61349e" : "white",
+              color: hoverColorBehance,
               backgroundColor: "transparent",
               fontFamily: "Nunito",
               fontWeight: "lighter",
@@ -129,17 +139,18 @@ export default function Footer({ text1, text2, text3 }) {
               cursor: "pointer",
               textDecoration: "none",
             }}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
+            onMouseEnter={() => setHoverBehance(true)}
+            onMouseLeave={() => setHoverBehance(false)}
           >
             behance
           </a>
           <a
             href="https://www.oracle.com/mx/cloud/sign-in.html"
+            className="link"
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              color: hover ? "#61349e" : "white",
+              color: hoverColorInstagram,
               backgroundColor: "transparent",
               fontFamily: "Nunito",
               fontWeight: "lighter",
@@ -148,8 +159,8 @@ export default function Footer({ text1, text2, text3 }) {
               cursor: "pointer",
               textDecoration: "none",
             }}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
+            onMouseEnter={() => setHoverInstagram(true)}
+            onMouseLeave={() => setHoverInstagram(false)}
           >
             instagram
           </a>

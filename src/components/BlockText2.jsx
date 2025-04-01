@@ -1,7 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-export default function PageHeader({ logo, text, title, width, height }) {
+
+export default function BlockText2({text}) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -12,7 +13,7 @@ export default function PageHeader({ logo, text, title, width, height }) {
   }, [])
 
   const gridColumns = 7
-  const gridRows = 3
+  const gridRows = 1
   const paddingLeft = 24
   const paddingRight = 48
   const extraWidth = 24
@@ -21,43 +22,15 @@ export default function PageHeader({ logo, text, title, width, height }) {
   const gridWidth = windowWidth - paddingLeft - paddingRight
   const getFontSize = () => {
     if (windowWidth >= 1920) {
-      return "128px"
+      return "24px"
     } else if (windowWidth >= 1440) {
-      return "96px"
-    } else if (windowWidth >= 1280) {
-      return "72px"
-    } else if (windowWidth >= 768) {
-      return "48px"
-    } else {
-      return "32px"
-    }
-  }
-
-  const getFontSize2 = () => {
-    if (windowWidth >= 1920) {
       return "20px"
-    } else if (windowWidth >= 1440) {
-      return "18px"
     } else if (windowWidth >= 1280) {
-      return "16px"
+      return "17px"
     } else if (windowWidth >= 768) {
-      return "14px"
+      return "15px"
     } else {
-      return "12px"
-    }
-  }
-
-  const getDimensions = () => {
-    if (windowWidth >= 1920) {
-      return [61, 48.68];
-    } else if (windowWidth >= 1440) {
-      return [48, 38.3]; // 80% aprox.
-    } else if (windowWidth >= 1280) {
-      return [42, 33.5]; // 70% aprox.
-    } else if (windowWidth >= 768) {
-      return [32, 25.5]; // 52% aprox.
-    } else {
-      return [24, 19]; // 40% aprox.
+      return "9px"
     }
   }
 
@@ -78,77 +51,28 @@ export default function PageHeader({ logo, text, title, width, height }) {
         style={{
           position: "relative",
           width: `${gridWidth}px`,
-          aspectRatio: "7/3",
+          aspectRatio: "7/1",
           overflow: "visible",
           display: "grid",
           gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
           gridTemplateRows: `repeat(${gridRows}, 1fr)`,
           boxSizing: "border-box",
-
         }}
       >
-        {/* title */}
-        <div
-            style={{
-              gridColumn: "1 / span 7",
-              gridRow: "1 / span 1",
-              display: "flex",              
+        <div style={{
+            gridColumn: "2 / span 2",
+            gridRow: "1 / span 1",
+        }}>
+            <p style={{
 
-            }}
-          >
-             <div
-              style={{
-                width:  width, 
-                height: height,
-                display: "flex",
+                color: "white",
+                fontFamily: "Nunito",
+                fontWeight: "normal",
+                fontSize: getFontSize(),
                 marginLeft: "24px",
-              }}
-            >
-              <p
-                style={{
-                  color: "white",
-                  fontFamily: "Inter",
-                  fontWeight: "bold",
-                  fontSize: getFontSize(), 
-                  margin: 0,
-                  textAlign: "left", 
-                }}
-              >
-                {title}
-              </p>
-            </div>
-        </div>
-  
-        {/* texto */}
-        <div
-            style={{
-              gridColumn: "1 / span 7",
-              gridRow: "2 / span 3",
-              display: "flex",
-
-            }}
-          >
-             <div
-              style={{
-                display: "flex",
-                marginLeft: "24px",
-              }}
-            >
-              <p
-                style={{
-                  color: "white",
-                  fontFamily: "Nunito",
-                  fontWeight: "lighter",
-                  fontSize: getFontSize2(), 
-                  margin: 0,
-                  paddingTop: "24px",
-                  textAlign: "left", 
-                  whiteSpace: "pre-line",
-                }}
-              >
-                {text}
-              </p>
-            </div>
+                marginTop: "24px",
+                whiteSpace: "pre-line",
+            }}>{text}</p>
         </div>
 
         {/* Grid overlay */}
@@ -176,7 +100,7 @@ export default function PageHeader({ logo, text, title, width, height }) {
                 top: 0,
                 bottom: 0,
                 left: 0,
-                right: `${extraWidth}px`, // Dejamos espacio para el borde derecho ancho
+                right: `${extraWidth}px`, 
                 backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.5) 24px, transparent 1px)`,
                 backgroundSize: `calc(100% / ${gridColumns}) 100%`,
                 backgroundRepeat: "repeat-x",

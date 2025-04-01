@@ -1,7 +1,7 @@
 "use client"
 import { Routes, Route, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import Marquee from "./Marquee";
+import { motion } from "framer-motion";
 
 export default function HomeHeader({ logo, text }) {
   const [windowWidth, setWindowWidth] = useState(0)
@@ -14,14 +14,14 @@ export default function HomeHeader({ logo, text }) {
   }, [])
 
   const gridColumns = 7
-  const gridRows = 3
+  const gridRows = 1
   const paddingLeft = 24
   const paddingRight = 48
   const extraWidth = 24
 
   // El ancho real del grid sin contar el extraWidth
   const gridWidth = windowWidth - paddingLeft - paddingRight
-  const altura = ((gridWidth / 7) / 2) + 48
+  const text2 = "WELCOME - WELCOME -"
 
   const getFontSize = () => {
     if (windowWidth >= 1920) {
@@ -37,17 +37,31 @@ export default function HomeHeader({ logo, text }) {
     }
   }
 
+  const getFontSize2 = () => {
+    if (window.innerWidth >= 1920) {
+      return 260;
+    } else if (window.innerWidth >= 1440) {
+      return 208;
+    } else if (window.innerWidth >= 1280) {
+      return 182;
+    } else if (window.innerWidth >= 768) {
+      return 135;
+    } else {
+      return 74;
+    }
+  };
+
   const getDimensions = () => {
     if (windowWidth >= 1920) {
       return [61, 48.68];
     } else if (windowWidth >= 1440) {
-      return [48, 38.3]; // 80% aprox.
+      return [48, 38.3]; 
     } else if (windowWidth >= 1280) {
-      return [42, 33.5]; // 70% aprox.
+      return [42, 33.5]; 
     } else if (windowWidth >= 768) {
-      return [32, 25.5]; // 52% aprox.
+      return [32, 25.5];
     } else {
-      return [24, 19]; // 40% aprox.
+      return [24, 19];
     }
   }
   
@@ -68,7 +82,7 @@ export default function HomeHeader({ logo, text }) {
         style={{
           position: "relative",
           width: `${gridWidth}px`,
-          aspectRatio: "7/3",
+          aspectRatio: "7/1",
           overflow: "visible",
           display: "grid",
           gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
@@ -78,28 +92,26 @@ export default function HomeHeader({ logo, text }) {
         }}
       >
         
-        {/* logo */}
-        <div style={{
-              gridColumn: "1 / span 1",
-              gridRow: "1 / span 1",
-              display: "flex",
-
-            }}>
-                <img style={{
-                    paddingLeft: "24px",
-                    paddingTop: "24px",
-                    width: `${getDimensions()[0]}px`,
-                    height: `${getDimensions()[1]}px`
-                }} src={logo}></img>
-        </div>
 
         <div style={{
               gridColumn: "1 / span 7",
               gridRow: "2 / span 2",
-              width: "100vw",
-              marginTop: `-${altura}px`
+              marginTop: "-24px",
             }}>
-              <Marquee />
+              <div style={{ overflow: "hidden", whiteSpace: "nowrap", width: "100vw", color: "white" }}>
+                    <motion.div
+                      style={{ display: "flex" }}
+                      initial={{ x: 0 }}
+                      animate={{ x: "-100%" }}
+                      transition={{ repeat: Infinity, ease: "linear", duration: 5 }}
+                    >
+                      {[...Array(10)].map((_, i) => (
+                        <span key={i} style={{ fontSize: `${getFontSize2()}px`, fontWeight: "lighter", fontFamily: "Inter" }}>
+                          {text2}
+                        </span>
+                      ))}
+                    </motion.div>
+              </div>
         </div>
 
         {/* text */}
@@ -107,6 +119,8 @@ export default function HomeHeader({ logo, text }) {
             style={{
               gridColumn: "2 / span 2",
               gridRow: "4 / span 1",
+              display: "flex",
+              alignSelf: "start"
             }}
           >
               <p

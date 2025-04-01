@@ -6,6 +6,7 @@ import HomeHeader from '../components/HomeHeader';
 import render from "../assets/renderstool.png";
 import Image5_2 from '../components/Image5_2';
 import Footer from '../components/Footer';
+import BlockText2 from '../components/BlockText2';
 const text = `Design portfolio
 by Jaime Barba`
 
@@ -18,7 +19,8 @@ function Home() {
     <div
     style={{
     }}>
-        <HomeHeader logo={logo} text={text}/>
+        <HomeHeader logo={logo}/>
+        <BlockText2 text={text}/>
         <Image5_2 image={buds1} text={"Switch-buds"} color={"white"} />
         <Image5_2 image={frame} text={"Elite re-dseign"} color={"black"}/>
         <Image5_2 image={titan} text={"Titan"} color={"white"}/>
@@ -29,3 +31,6 @@ function Home() {
 }
 
 export default Home;
+
+
+

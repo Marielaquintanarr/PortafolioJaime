@@ -32,7 +32,7 @@ export default function Text({ text, color }) {
       return "9px"
     }
   }
-  
+
   return (
     <div
       style={{
@@ -71,7 +71,7 @@ export default function Text({ text, color }) {
                 color: "white",
                 fontSize: getFontSize(),
                 fontFamily: "Nunito",
-                fontWeight: "lighter".a
+                fontWeight: "lighter"
                 }}>
                     {text}
             </p>
