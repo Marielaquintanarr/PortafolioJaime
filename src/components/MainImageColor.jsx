@@ -21,6 +21,20 @@ export default function MainImageColor({ image, label, color, colorText }) {
   // El ancho real del grid sin contar el extraWidth
   const gridWidth = windowWidth - paddingLeft - paddingRight
 
+  const getFontSize = () => {
+    if (windowWidth >= 1920) {
+      return "36px"
+    } else if (windowWidth >= 1440) {
+      return "30px"
+    } else if (windowWidth >= 1280) {
+      return "24px"
+    } else if (windowWidth >= 768) {
+      return "18px"
+    } else {
+      return "14px"
+    }
+  }
+
   return (
     <div
       style={{
@@ -47,14 +61,14 @@ export default function MainImageColor({ image, label, color, colorText }) {
           boxSizing: "border-box",
         }}
       >
-        {/* Contenedor de la imagen con fondo */}
+        {/* imagen */}
         <div
           style={{
             position: "absolute",
             top: 0,
             bottom: 0,
             left: 0,
-            right: `-${extraWidth}px`, // Extendemos 24px a la derecha
+            right: `-${extraWidth}px`, 
             zIndex: 0,
             backgroundImage: `url(${image || "/placeholder.svg"})`,
             backgroundPosition: "center",
@@ -66,13 +80,13 @@ export default function MainImageColor({ image, label, color, colorText }) {
         {/* Texto */}
         <div
           style={{
-            gridColumn: "1 / span 1",
+            gridColumn: "1 / span 3",
             gridRow: `${gridRows} / span 1`,
             display: "flex",
             alignItems: "center",
             fontFamily: "Nunito",
             fontWeight: "lighter",
-            fontSize: "36px",
+            fontSize: `${getFontSize()}`,
             zIndex: 1,
             paddingLeft: "24px",
             color: colorText,

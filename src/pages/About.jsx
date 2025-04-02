@@ -1,15 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 import AboutHeader from "../components/AboutHeader"
 import logo from "../assets/logo.png";
 import jaime from "../assets/jaime.png"
 import Footer from '../components/Footer';
-import { Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
-import SwitchBuds from "../pages/SwitchBuds";
-import Titan from "../pages/Titan";
-import Stoool from "../pages/Stoool";
-import Redesign from "../pages/Redesign"
-import Navbar from "../components/Navbar"; 
+import Block2 from '../components/Block2';
 
 
 const text = `My name is Jaime, and I’m an industrial designer passionate about innovation and 
@@ -55,15 +49,22 @@ const text5 = `linkedin
 behance
 instagram`;
 
-function About() {
+export default function About() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  
   return (
     <div
     style={{
     }}>
         <AboutHeader logo={logo} title={"Hi!"} text={text} title1={"Education"} text1={text1} title2={'Experience'} text2={text2} title3={'Projects'} text3={text3} image= {jaime}/>
+        {windowWidth < 768 && <Block2 />}
         <Footer text={text5} />
+
     </div>
   );
-}
-
-export default About;
+};
