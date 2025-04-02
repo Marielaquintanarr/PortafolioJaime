@@ -60,7 +60,7 @@ export default function Image5_2({ image, text, color }) {
 
         }}
       >
-        {/* Imagen izquierda */}
+        {/* Imagen */}
         <div
           style={{
             position: "absolute", 
